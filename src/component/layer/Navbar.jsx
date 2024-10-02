@@ -8,14 +8,6 @@ import { IoMdSettings } from "react-icons/io";
 
 const Search_bar = ({className}) => {
   return (
-    // <div className="search relative sm:hidden flex">
-    //   <FiSearch className="text-2xl text-[#596780] absolute top-1/2 -translate-y-1/2 left-0 translate-x-full" />
-    //   <input
-    //     type="text"
-    //     className="py-3 px-16  w-96 md:w-80 lg:w-[31rem] font-jakarta font-medium text-sm text-primary-text outline-none border border-[#C3D4E966] rounded-full"
-    //     placeholder="Search something here"
-    //   />
-    // </div>
     <div className={`search relative hidden sm:flex ${className} `}>
           <FiSearch className="text-2xl text-[#596780] absolute top-1/2 -translate-y-1/2 left-0 translate-x-full" />
           <input
@@ -37,7 +29,7 @@ const Navbar = () => {
     <div>
       <Container className=" flex items-center justify-between">
         <div className="logo max-w-36 py-8 md:py-9 xl:py-10 ">
-          <img src={logo} alt="" />
+          <img  src={logo} alt="" />
         </div>
         <Search_bar/>
         <div className="profile flex gap-x-3 md:gap-x-4 lg:gap-x-5">
@@ -54,7 +46,7 @@ const Navbar = () => {
           </div>
           <div
             onClick={() => setUser(!user)}
-            className="user h-12 w-12 border rounded-full relative"
+            className="user h-11 w-11 border rounded-full relative"
           >
             <img className="h-full w-full" src={pfp} alt="" />
             {user ? (

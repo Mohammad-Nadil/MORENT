@@ -1,9 +1,10 @@
 import React from 'react'
+import Container from '../layer/Container'
 
 const Home = () => {
   return (
-    <div>
-        
+    <div  className='text-9xl h-[60vh] bg-secondary'>
+      <Container><p >Home</p></Container>
     </div>
   )
 }
