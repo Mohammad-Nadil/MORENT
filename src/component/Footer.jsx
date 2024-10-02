@@ -25,7 +25,7 @@ const Footer = () => {
                 <li><a href="#">Bussiness Relation</a></li>
             </ul>
           </div>
-          <div className="w-36 flex flex-col gap-y-3 sm:gap-y-4">
+          <div className="w-32 flex flex-col gap-y-3 sm:gap-y-4">
             <p className="font-semibold text-xl text-primary-text" >Community</p>
             <ul className="font-medium text-primary-text/60 flex flex-col  gap-y-2 sm:gap-y-4 md:gap-y-6 lg:gap-y-8 py-2 md:py-4" >
                 <li><a href="#">Events</a></li>

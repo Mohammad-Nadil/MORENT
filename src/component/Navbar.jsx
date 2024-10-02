@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Container from "./Container";
+import Container from "./layer/Container";
 import logo from "/Logo.png";
 import pfp from "/profile.jpg";
 import { FiSearch, FiSliders } from "react-icons/fi";
