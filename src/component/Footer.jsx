@@ -4,8 +4,8 @@ import logo from "/Logo.png";
 
 const Footer = () => {
   return (
-    <div>
-      <Container className="pt-20 pb-9 flex justify-between flex-col gap-y-12 md:gap-y-16 lg:flex-row border-b border-[#131313]/15 ">
+    <div className=" pt-12 md:pt-14 xl:pt-16 bg-secondary " >
+      <Container className="pt-20 pb-9 bg-white flex justify-between flex-col gap-y-12 md:gap-y-16 lg:flex-row border-b border-[#131313]/15 ">
         <div className="left w-72 flex flex-col gap-y-4 ">
           <div className="logo">
             <img src={logo} alt="" />
@@ -45,7 +45,7 @@ const Footer = () => {
           </div>
         </div>
       </Container>
-      <Container className="font-jakarta font-semibold text-primary-text pt-9 pb-14 flex justify-between lg:items-center flex-wrap flex-col-reverse sm:flex-row gap-y-8" >
+      <Container className="font-jakarta font-semibold bg-white text-primary-text pt-9 pb-14 flex justify-between lg:items-center flex-wrap flex-col-reverse sm:flex-row gap-y-8" >
         <div className="left"><p>©2022 MORENT. All rights reserved</p></div>
         <div className="right flex justify-between sm:gap-x-6 md:gap-x-8 lg:gap-x-12 ">
           <a href="#"><p>Privacy & Policy</p></a>
