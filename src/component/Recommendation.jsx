@@ -12,7 +12,7 @@ const Recommendation = () => {
         </h2>
         <p>
           <Link
-            to=""
+            to="/category"
             className="font-semibold text-primary hover:bg-secondary-text sm:px-5 py-2.5 rounded-md transition-all duration-300"
           >
             View All
@@ -20,18 +20,90 @@ const Recommendation = () => {
         </p>
       </Container>
       <Container className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3  xl:grid-cols-4 gap-6 xl:gap-8 ">
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
-        <ProductCard image={car} title="CR - V" type="SUV" price="80.00" className="col-span-1 row-span-1" />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
       </Container>
     </div>
   );

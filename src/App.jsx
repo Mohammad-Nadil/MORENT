@@ -8,12 +8,13 @@ import {
 } from "react-router-dom";
 import RootLayout from "./component/RootLayout";
 import Home from "./component/pages/Home";
+import Category from "./component/pages/Category";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home/>}></Route>
-      <Route></Route>
+      <Route path="/category" element={<Category/>} ></Route>
     </Route>
   )
 );
