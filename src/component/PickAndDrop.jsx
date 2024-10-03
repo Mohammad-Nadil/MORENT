@@ -40,13 +40,13 @@ const PickAndDrop = () => {
             <label htmlFor="pick-date" className="text-primary-text font-bold">
               Date
             </label>
-            <input className="text-[11px] sm:text-sm text-secondary-text"  type="date" name="pick-date" id="pick-date" />
+            <input className="text-[11px] w-11/12 sm:w-auto sm:text-sm text-secondary-text"  type="date" name="pick-date" id="pick-date" />
           </div>
           <div className="time w-1/3 flex flex-col gap-y-2 pl-2 sm:pl-6 border-l border-[#C3D4E966]">
             <label htmlFor="pick-time" className="text-primary-text font-bold">
               Time
             </label>
-            <input  className="text-xs sm:text-sm text-secondary-text" type="time" name="pick-time" id="pick-time" />
+            <input  className="text-xs w-11/12 sm:w-auto sm:text-sm text-secondary-text" type="time" name="pick-time" id="pick-time" />
           </div>
         </div>
       </motion.div>
@@ -85,13 +85,13 @@ const PickAndDrop = () => {
             <label htmlFor="drop-date" className="text-primary-text font-bold">
               Date
             </label>
-            <input className="text-[11px] sm:text-sm text-secondary-text" type="date" name="drop-date" id="drop-date" />
+            <input className="text-[11px] w-11/12 sm:w-auto sm:text-sm text-secondary-text" type="date" name="drop-date" id="drop-date" />
           </div>
           <div className="time w-1/3 flex flex-col gap-y-2 pl-2 sm:pl-6 border-l border-[#C3D4E966]">
             <label htmlFor="drop-time" className="text-primary-text font-bold">
               Time
             </label>
-            <input className="text-xs sm:text-sm text-secondary-text" type="time" name="drop-time" id="drop-time" />
+            <input className="text-xs w-11/12 sm:w-auto sm:text-sm text-secondary-text" type="time" name="drop-time" id="drop-time" />
           </div> 
         </div>
       </motion.div>
