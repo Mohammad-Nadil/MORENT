@@ -45,7 +45,7 @@ const Footer = () => {
           </div>
         </div>
       </Container>
-      <Container className="font-jakarta font-semibold bg-white text-primary-text pt-9 pb-14 flex justify-between lg:items-center flex-wrap flex-col-reverse sm:flex-row gap-y-8" >
+      <Container className="font-jakarta font-semibold bg-white text-primary-text py-6 sm:pt-7 md:pt-9 sm:pb-9 md:pb-11 lg:pb-12 xl:pb-14 flex justify-between lg:items-center flex-wrap flex-col-reverse sm:flex-row gap-y-8" >
         <div className="left"><p>©2022 MORENT. All rights reserved</p></div>
         <div className="right flex justify-between sm:gap-x-6 md:gap-x-8 lg:gap-x-12 ">
           <a href="#"><p>Privacy & Policy</p></a>
