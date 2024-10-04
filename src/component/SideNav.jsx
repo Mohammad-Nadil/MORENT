@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
 const SideNav = () => {
-  let [type, setType] = useState(false);
-  let [cap, setCap] = useState(false);
-  let [prRange, setPrRange] = useState(false);
+  // Single state variable to track the active section
+  let [activeSection, setActiveSection] = useState(null);
 
   // Default value of 100
   let [price, setPrice] = useState(100);
@@ -13,11 +12,27 @@ const SideNav = () => {
     setPrice(e.target.value);
   };
 
+  // Function to toggle sections
+  let toggleSection = (section) => {
+    setActiveSection((prevSection) =>
+      prevSection === section ? null : section
+    );
+  };
+
   return (
     <div className=" p-2 xl:p-8 flex justify-between xl:flex-col gap-y-14 font-jakarta relative font-semibold text-primary-text ">
       <div className="flex xl:flex-col  items-center xl:items-start border xl:border-none rounded-md gap-y-0 xl:gap-y-7">
-        <p  onClick={()=>setType(!type)} className="font-semibold text-sm text-secondary-text p-2 xl:p-0">TYPE</p>
-        <div className={` flex flex-col absolute z-50 xl:static top-full  left-0 bg-white border xl:border-none gap-y-3 p-4 xl:p-0 w-52 md:gap-y-5 xl:gap-y-8 transition-all duration-300 ${type ?"opacity-100 visible":"opacity-0 invisible"} xl:visible xl:opacity-100`}>
+        <p
+          onClick={() =>toggleSection("type")}
+          className="font-semibold text-sm text-secondary-text p-2 xl:p-0"
+        >
+          TYPE
+        </p>
+        <div
+          className={` flex flex-col absolute z-50 xl:static top-full  left-0 bg-white border xl:border-none gap-y-3 p-4 xl:p-0 w-52 md:gap-y-5 xl:gap-y-8 transition-all duration-300 ${
+            activeSection === "type" ? "opacity-100 visible" : "opacity-0 invisible"
+          } xl:visible xl:opacity-100`}
+        >
           <div className="flex items-center gap-x-2 ">
             <input
               type="checkbox"
@@ -83,9 +98,18 @@ const SideNav = () => {
         </div>
       </div>
       <div className="flex flex-col items-center xl:items-start  xl:gap-y-7">
-        <p onClick={()=>setCap(!cap)} className="font-semibold border xl:border-none rounded-md text-sm text-secondary-text p-2 xl:p-0">CAPACITY</p>
-        <div className={`flex flex-col absolute xl:static bg-white border xl:border-none top-full py-4 px-8 xl:px-0 z-30  gap-y-8 transition-all duration-300 ${cap ?" opacity-100 visible":" opacity-0 invisible"} xl:opacity-100 xl:visible `}>
-          <div className="flex items-center gap-x-2 "> 
+        <p
+          onClick={() => toggleSection("cap")}
+          className="font-semibold border xl:border-none rounded-md text-sm text-secondary-text p-2 xl:p-0"
+        >
+          CAPACITY
+        </p>
+        <div
+          className={`flex flex-col absolute xl:static bg-white border xl:border-none top-full py-4 px-8 xl:px-0 z-30  gap-y-8 transition-all duration-300 ${
+            activeSection === "cap"  ? " opacity-100 visible" : " opacity-0 invisible"
+          } xl:opacity-100 xl:visible `}
+        >
+          <div className="flex items-center gap-x-2 ">
             <input
               type="checkbox"
               className="w-5 h-5 "
@@ -130,9 +154,18 @@ const SideNav = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-y-7" >
-        <p onClick={()=>setPrRange(!prRange)} className="font-semibold text-sm p-2 xl:p-0 border xl:border-none rounded-md text-secondary-text">Price</p>
-        <div className={`flex flex-col absolute xl:static top-full right-0 bg-white p-4 xl:p-0 border xl:border-none z-30 w-52 gap-y-3 ${prRange?"opacity-100 visible":" opacity-0 invisible"} xl:opacity-100 xl:visible transition-all duration-300 `} >
+      <div className="flex flex-col gap-y-7">
+        <p
+          onClick={() => toggleSection("price")}
+          className="font-semibold text-sm p-2 xl:p-0 border xl:border-none rounded-md text-secondary-text"
+        >
+          Price
+        </p>
+        <div
+          className={`flex flex-col absolute xl:static top-full right-0 bg-white p-4 xl:p-0 border xl:border-none z-30 w-52 gap-y-3 ${
+            activeSection === "price" ? "opacity-100 visible" : " opacity-0 invisible"
+          } xl:opacity-100 xl:visible transition-all duration-300 `}
+        >
           {" "}
           <input
             type="range"
