@@ -14,12 +14,12 @@ const Category = () => {
     setItemsPerPage(itemsPerPage + 12);
   };
   return (
-    <div>
-      <Container className="flex bg-secondary">
-        <div className="sideBar w-1/4 hidden xl:flex flex-col bg-white">
+    <div className="py-1" >
+      <Container className="flex flex-col xl:flex-row bg-secondary">
+        <div className="sideBar xl:w-1/4  flex-col bg-white">
           <SideNav />
         </div>
-        <div className="main w-full xl:w-3/4 gap-8 flex flex-col p-8 ">
+        <div className="main w-full xl:w-3/4 gap-8 flex flex-col pt-5 xl:p-8 ">
           <Pick2 className="w-full" />
           <Paginate itemsPerPage={itemsPerPage} />
           <motion.button

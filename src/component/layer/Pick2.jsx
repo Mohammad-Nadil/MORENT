@@ -7,7 +7,7 @@ const Pick2 = ({className}) => {
     let [swap, setSwap] = useState(true);
   return (
     <Container
-      className={`py-0 font-jakarta flex justify-between gap-y-12 ${className} ${
+      className={`py-0 xl:px-0 font-jakarta flex justify-between gap-y-12 ${className} ${
         swap ? "xl:flex-row flex-col " : "xl:flex-row-reverse flex-col-reverse"
       }`}
     >
@@ -16,7 +16,7 @@ const Pick2 = ({className}) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`pick xl:w-[430px] bg-white py-4 sm:py-6 px-3 sm:px-3 flex flex-col gap-y-4`}
+        className={`pick xl:w-[415px] bg-white py-3 sm:py-6 px-3  flex flex-col gap-y-4`}
       >
         <div className="up font-semibold   text-primary-text">
           <p>Pick - Up</p>
@@ -63,7 +63,7 @@ const Pick2 = ({className}) => {
         </div>
       </motion.div>
       <div
-        className="switch cursor-pointer h-14 w-14 rounded-xl bg-primary text-white grid place-content-center text-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+        className="switch cursor-pointer h-14 w-14 rounded-xl bg-primary text-white grid place-content-center text-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
         onClick={() => setSwap(!swap)}
         aria-label="Swap Pick-Up and Drop-Off"
       >
@@ -74,7 +74,7 @@ const Pick2 = ({className}) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`pick xl:w-[430px] bg-white py-4 sm:py-6 px-3 sm:px-6 flex flex-col gap-y-4 `}
+        className={`pick xl:w-[415px] bg-white py-4 sm:py-6 px-3 sm:px-6 flex flex-col gap-y-4 `}
       >
         <div className="up font-semibold text-primary-text">
           <p>Drop - Off</p>
