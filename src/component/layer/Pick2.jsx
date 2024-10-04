@@ -43,7 +43,7 @@ const Pick2 = ({className}) => {
               Date
             </label>
             <input
-              className="text-xs sm:text-sm text-secondary-text"
+              className="text-xs sm:text-sm text-secondary-text w-11/12 sm:w-auto"
               type="date"
               name="pick-date"
               id="pick-date"
@@ -54,7 +54,7 @@ const Pick2 = ({className}) => {
               Time
             </label>
             <input
-              className="text-xs sm:text-sm text-secondary-text"
+              className="text-xs sm:text-sm text-secondary-text w-11/12 sm:w-auto"
               type="time"
               name="pick-time"
               id="pick-time"
@@ -101,7 +101,7 @@ const Pick2 = ({className}) => {
               Date
             </label>
             <input
-              className="text-xs sm:text-sm text-secondary-text"
+              className="text-xs sm:text-sm text-secondary-text w-11/12 sm:w-auto"
               type="date"
               name="drop-date"
               id="drop-date"
@@ -112,7 +112,7 @@ const Pick2 = ({className}) => {
               Time
             </label>
             <input
-              className="text-xs sm:text-sm text-secondary-text"
+              className="text-xs sm:text-sm text-secondary-text w-10/12 sm:w-auto"
               type="time"
               name="drop-time"
               id="drop-time"

@@ -84,7 +84,7 @@ const SideNav = () => {
       </div>
       <div className="flex flex-col items-center xl:items-start  xl:gap-y-7">
         <p onClick={()=>setCap(!cap)} className="font-semibold border xl:border-none rounded-md text-sm text-secondary-text p-2 xl:p-0">CAPACITY</p>
-        <div className={`flex flex-col absolute xl:static bg-white border xl:border-none top-full py-4 px-8 xl:px-0 z-30  gap-y-8${cap ?" opacity-100 visible":" opacity-0 invisible"} xl:opacity-100 xl:visible `}>
+        <div className={`flex flex-col absolute xl:static bg-white border xl:border-none top-full py-4 px-8 xl:px-0 z-30  gap-y-8 transition-all duration-300 ${cap ?" opacity-100 visible":" opacity-0 invisible"} xl:opacity-100 xl:visible `}>
           <div className="flex items-center gap-x-2 "> 
             <input
               type="checkbox"
@@ -132,7 +132,7 @@ const SideNav = () => {
       </div>
       <div className="flex flex-col gap-y-7" >
         <p onClick={()=>setPrRange(!prRange)} className="font-semibold text-sm p-2 xl:p-0 border xl:border-none rounded-md text-secondary-text">Price</p>
-        <div className={`flex flex-col absolute xl:static top-full right-0 bg-white p-4 xl:p-0 border xl:border-none z-30 w-52 gap-y-3 ${prRange?"opacity-100 visible":" opacity-0 invisible"} xl:opacity-100 xl:visible `} >
+        <div className={`flex flex-col absolute xl:static top-full right-0 bg-white p-4 xl:p-0 border xl:border-none z-30 w-52 gap-y-3 ${prRange?"opacity-100 visible":" opacity-0 invisible"} xl:opacity-100 xl:visible transition-all duration-300 `} >
           {" "}
           <input
             type="range"
