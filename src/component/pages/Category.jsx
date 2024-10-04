@@ -19,8 +19,8 @@ const Category = () => {
         <div className="sideBar xl:w-1/4  flex-col bg-white">
           <SideNav />
         </div>
-        <div className="main w-full xl:w-3/4 gap-8 flex flex-col pt-5 xl:p-8 ">
-          <Pick2 className="w-full" />
+        <div className="main w-full xl:w-3/4 gap-8 flex flex-col pt-3 xl:pl-5 ">
+          {/* <Pick2 className="w-full" /> */}
           <Paginate itemsPerPage={itemsPerPage} />
           <motion.button
             whileHover={{ scale: 1.1 }} // Scale up on hover
