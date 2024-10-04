@@ -4,6 +4,7 @@ import Paginate from "../Paginate";
 import { motion } from "framer-motion";
 import Pick2 from "../layer/Pick2";
 import SideNav from "../SideNav";
+import PickAndDrop from "../PickAndDrop";
 
 const Category = () => {
   // Set initial itemsPerPage to 12
@@ -20,7 +21,7 @@ const Category = () => {
           <SideNav />
         </div>
         <div className="main w-full xl:w-3/4 gap-8 flex flex-col pt-3 xl:pl-5 ">
-          {/* <Pick2 className="w-full" /> */}
+          <Pick2 className="w-full" />
           <Paginate itemsPerPage={itemsPerPage} />
           <motion.button
             whileHover={{ scale: 1.1 }} // Scale up on hover

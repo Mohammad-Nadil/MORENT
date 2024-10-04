@@ -7,7 +7,7 @@ const Pick2 = ({className}) => {
     let [swap, setSwap] = useState(true);
   return (
     <Container
-      className={`py-0 xl:px-0 font-jakarta flex justify-between gap-y-12 ${className} ${
+      className={`px-0 xl:px-0 font-jakarta flex justify-between gap-y-12 ${className} ${
         swap ? "xl:flex-row flex-col " : "xl:flex-row-reverse flex-col-reverse"
       }`}
     >
@@ -21,44 +21,31 @@ const Pick2 = ({className}) => {
         <div className="up font-semibold   text-primary-text">
           <p>Pick - Up</p>
         </div>
-        <div className="down flex gap-y-4 flex-col sm:flex-row">
-          <div className="location sm:w-1/3 flex flex-col gap-y-2 sm:pr-2 border-b sm:border-r sm:border-b-0 border-[#C3D4E966]">
+        <div className="down flex flex-row">
+          <div className="location w-[30%] sm:w-1/3 flex flex-col gap-y-2 pr-1 sm:pr-2 border-r border-[#C3D4E966]">
             <label
               htmlFor="pick-location"
               className="text-primary-text font-bold"
             >
               Locations
             </label>
-            <select
-              id="pick-location"
-              className="form-select text-sm  text-secondary-text"
-            >
+            <select id="pick-location" className="form-select text-xs sm:text-sm  text-secondary-text">
               <option value="location1">Location 1</option>
               <option value="location2">Location 2</option>
               <option value="location3">Location 3</option>
             </select>
           </div>
-          <div className="date sm:w-1/3 flex flex-col gap-y-2 sm:px-2 border-b border-[#C3D4E966] sm:border-b-0">
+          <div className="date w-[40%] sm:w-1/3 flex flex-col gap-y-2 px-1 sm:px-2">
             <label htmlFor="pick-date" className="text-primary-text font-bold">
               Date
             </label>
-            <input
-              className="text-sm text-secondary-text "
-              type="date"
-              name="pick-date"
-              id="pick-date"
-            />
+            <input className="text-xs text-secondary-text w-full sm:w-auto"  type="date" name="pick-date" id="pick-date" />
           </div>
-          <div className="time sm:w-1/3 flex flex-col gap-y-2 sm:pl-3  sm:border-l border-[#C3D4E966]">
+          <div className="time w-[30%] sm:w-1/3 flex flex-col gap-y-2 pl-1 sm:pl-2 border-l border-[#C3D4E966]">
             <label htmlFor="pick-time" className="text-primary-text font-bold">
               Time
             </label>
-            <input
-              className="text-xs sm:text-sm text-secondary-text  "
-              type="time"
-              name="pick-time"
-              id="pick-time"
-            />
+            <input  className="text-xs sm:text-sm text-secondary-text w-full sm:w-auto" type="time" name="pick-time" id="pick-time" />
           </div>
         </div>
       </motion.div>
@@ -79,45 +66,32 @@ const Pick2 = ({className}) => {
         <div className="up font-semibold text-primary-text">
           <p>Drop - Off</p>
         </div>
-        <div className="down flex flex-col sm:flex-row gap-y-4">
-          <div className="location sm:w-1/3 flex flex-col gap-y-2 sm:pr-2  sm:border-r border-b sm:border-b-0 border-[#C3D4E966]">
+        <div className="down flex">
+          <div className="location w-[30%] sm:w-1/3 flex flex-col gap-y-2 pr-1 sm:pr-2 border-r border-[#C3D4E966]">
             <label
               htmlFor="drop-location"
               className="text-primary-text font-bold"
             >
               Locations
             </label>
-            <select
-              id="drop-location"
-              className="form-select text-sm  text-secondary-text"
-            >
+            <select id="drop-location" className="form-select text-xs sm:text-sm  text-secondary-text">
               <option value="location1">Location 1</option>
               <option value="location2">Location 2</option>
               <option value="location3">Location 3</option>
             </select>
           </div>
-          <div className="date sm:w-1/3 flex flex-col gap-y-2 sm:px-2 border-b border-[#C3D4E966] sm:border-none">
+          <div className="date w-[40%] sm:w-1/3 flex flex-col gap-y-2 px-1 sm:px-2">
             <label htmlFor="drop-date" className="text-primary-text font-bold">
               Date
             </label>
-            <input
-              className="text-sm text-secondary-text  sm:w-auto"
-              type="date"
-              name="drop-date"
-              id="drop-date"
-            />
+            <input className="text-xs sm:text-sm text-secondary-text w-full sm:w-auto" type="date" name="drop-date" id="drop-date" />
           </div>
-          <div className="time sm:w-1/3 flex flex-col gap-y-2 sm:pl-3 sm:border-l border-[#C3D4E966]">
+          <div className="time w-[30%] sm:w-1/3 flex flex-col gap-y-2 pl-1 sm:pl-2 border-l border-[#C3D4E966]">
             <label htmlFor="drop-time" className="text-primary-text font-bold">
               Time
             </label>
-            <input
-              className="text-sm text-secondary-text  sm:w-auto"
-              type="time"
-              name="drop-time"
-              id="drop-time"
-            />
-          </div>
+            <input className="text-xs sm:text-sm text-secondary-text w-full sm:w-auto" type="time" name="drop-time" id="drop-time" />
+          </div> 
         </div>
       </motion.div>
     </Container>

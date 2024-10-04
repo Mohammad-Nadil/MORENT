@@ -81,13 +81,13 @@ const PickAndDrop = ({className , divClass  }) => {
               <option value="location3">Location 3</option>
             </select>
           </div>
-          <div className="date w-[38%] sm:w-1/3 flex flex-col gap-y-2 px-1 sm:px-6">
+          <div className="date w-[36%] sm:w-1/3 flex flex-col gap-y-2 px-1 sm:px-6">
             <label htmlFor="drop-date" className="text-primary-text font-bold">
               Date
             </label>
             <input className="text-[11px] sm:text-sm text-secondary-text w-full sm:w-auto" type="date" name="drop-date" id="drop-date" />
           </div>
-          <div className="time w-[28%] sm:w-1/3 flex flex-col gap-y-2 pl-2 sm:pl-6 border-l border-[#C3D4E966]">
+          <div className="time w-[30%] sm:w-1/3 flex flex-col gap-y-2 pl-2 sm:pl-6 border-l border-[#C3D4E966]">
             <label htmlFor="drop-time" className="text-primary-text font-bold">
               Time
             </label>
