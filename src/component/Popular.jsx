@@ -19,7 +19,7 @@ const Popular = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 1000,
+    speed: 500,
     autoplaySpeed: 4000,
     cssEase: "linear",
     responsive: [

@@ -10,13 +10,21 @@ import sagor from "/sagor.jpg";
 import nadil from "/nadil.jpg";
 import saad from "/saad.jpg";
 import farhan from "/farhan.jpg";
+import { Link } from "react-router-dom";
+import car from "/cr-v.png";
+import Koenigsegg from "/Koenigsegg.png";
+import RollsRoyce from "/Rolls-Royce.png";
+import NissanGT from "/NissanGT-R.png";
+import MG_ZX_Exclusice from "/MG-ZX-Exclusice.png";
+import AllNewRush from "/AllNewRush.png";
+import ProductCard from "./layer/ProductCard";
 
 // Dummy reviews data
 const reviews = [
-  { pic: nadil, name: "Hossainur Rashid" , ceo:"CEO  of  nothing" },
-  { pic: sagor, name: "Sagor Ahmed" , ceo:"CEO  of  his crush 💖" },
-  { pic: farhan, name: "A.J. Farhan" , ceo:"CEO  of  Amazon" },
-  { pic: saad, name: "Mohammad Saad" , ceo:"CEO  of  Jamia" },
+  { pic: nadil, name: "Hossainur Rashid", ceo: "CEO  of  nothing" },
+  { pic: sagor, name: "Sagor Ahmed", ceo: "CEO  of  his crush 💖" },
+  { pic: farhan, name: "A.J. Farhan", ceo: "CEO  of  Amazon" },
+  { pic: saad, name: "Mohammad Saad", ceo: "CEO  of  Jamia" },
   // Add more review data here
 ];
 
@@ -30,7 +38,7 @@ const Details = () => {
   let reviewsToShow = showAll ? reviews.length : 1;
 
   return (
-    <div className="font-jakarta flex flex-col gap-y-8 w-full xl:w-3/4 pt-6 xl:p-8 ">
+    <div className="font-jakarta flex flex-col gap-y-8 w-full xl:w-3/4 pt-4 xl:px-8 ">
       <div className="details bg-slate-100 flex flex-col lg:flex-row gap-8 w-full">
         <div className="images flex flex-col  gap-y-4 md:gap-y-6 lg:w-1/2  ">
           <div className="top w-full  ">
@@ -61,7 +69,7 @@ const Details = () => {
             </div>
           </div>
         </div>
-        <div className="info flex flex-col gap-y-8 justify-between rounded-xl lg:w-1/2 sm:p-6 bg-white ">
+        <div className="info flex flex-col gap-y-8 justify-between rounded-xl lg:w-1/2 p-2 sm:p-6 bg-white ">
           <div className="title flex justify-between ">
             <div className="left flex flex-col gap-y-2.5">
               <div className="name text-3xl font-bold text-primary-text ">
@@ -147,14 +155,82 @@ const Details = () => {
         </div>
         <div className="main flex flex-col gap-y-12">
           {reviews.slice(0, reviewsToShow).map((review, index) => (
-            <Review key={index} pic={review.pic} name={review.name} ceo={review.ceo} />
+            <Review
+              key={index}
+              pic={review.pic}
+              name={review.name}
+              ceo={review.ceo}
+            />
           ))}
         </div>
         <div className="btn flex justify-center ">
-          <button  onClick={() => setShowAll(!showAll)} className="py-2.5 px-5 text-secondary-text font-semibold flex items-center gap-x-2 rounded-xl ">
-          {showAll ? "Show Less" : "Show All"}{" "}
-          {showAll ? <FaAngleUp /> : <FaAngleDown />}
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="py-2.5 px-5 text-secondary-text font-semibold flex items-center gap-x-2 rounded-xl "
+          >
+            {showAll ? "Show Less" : "Show All"}{" "}
+            {showAll ? <FaAngleUp /> : <FaAngleDown />}
           </button>
+        </div>
+      </div>
+      <div className="recent flex flex-col gap-y-4">
+        <div className="head flex justify-between items-center">
+          {" "}
+          <h2 className=" font-semibold text-secondary-text py-2.5 sm:px-5">
+            Recommendation Car
+          </h2>
+          <p>
+            <Link
+              to="/category"
+              className="font-semibold text-primary hover:bg-secondary-text sm:px-5 py-2.5 rounded-md transition-all duration-300"
+            >
+              View All
+            </Link>
+          </p>
+        </div>
+        <div className="products grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
+        <ProductCard
+          image={Koenigsegg}
+          title="Koenigsegg"
+          type="Sport"
+          price="99.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={NissanGT}
+          title="Nissan GT-R"
+          type="Sport"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={RollsRoyce}
+          title="Rolls - Royce"
+          type="SUV"
+          price="96.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={MG_ZX_Exclusice}
+          title="MG ZX Excite"
+          type="SUV"
+          price="74.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={AllNewRush}
+          title="All New Rush"
+          type="SUV"
+          price="72.00"
+          className="col-span-1 row-span-1"
+        />
+        <ProductCard
+          image={car}
+          title="CR - V"
+          type="SUV"
+          price="80.00"
+          className="col-span-1 row-span-1"
+        />
         </div>
       </div>
     </div>
