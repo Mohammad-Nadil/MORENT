@@ -138,7 +138,7 @@ const Details = () => {
           </div>
         </div>
       </div>
-      <div className="review flex flex-col gap-y-8  sm:p-6">
+      <div className="review flex flex-col gap-y-8 p-2 bg-white rounded-lg  sm:p-6">
         <div className="head flex gap-x-3 items-center">
           <h2 className="font-semibold text-xl text-primary-text">Reviews </h2>
           <p className="text-sm font-bold text-white py-1.5 px-3 bg-primary rounded">
