@@ -61,7 +61,7 @@ const Details = () => {
             </div>
           </div>
         </div>
-        <div className="info flex flex-col gap-y-8 justify-between rounded-xl lg:w-1/2 p-6 bg-white ">
+        <div className="info flex flex-col gap-y-8 justify-between rounded-xl lg:w-1/2 sm:p-6 bg-white ">
           <div className="title flex justify-between ">
             <div className="left flex flex-col gap-y-2.5">
               <div className="name text-3xl font-bold text-primary-text ">
@@ -138,7 +138,7 @@ const Details = () => {
           </div>
         </div>
       </div>
-      <div className="review flex flex-col gap-y-8 bg-white p-2 sm:p-6">
+      <div className="review flex flex-col gap-y-8  sm:p-6">
         <div className="head flex gap-x-3 items-center">
           <h2 className="font-semibold text-xl text-primary-text">Reviews </h2>
           <p className="text-sm font-bold text-white py-1.5 px-3 bg-primary rounded">
