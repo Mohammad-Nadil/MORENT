@@ -13,10 +13,10 @@ import farhan from "/farhan.jpg";
 
 // Dummy reviews data
 const reviews = [
-  { pic: nadil, name: "Hossainur Rashid" , ceo:"CEO of nothing" },
-  { pic: sagor, name: "Sagor Ahmed" , ceo:"CEO of his crush 💖" },
-  { pic: farhan, name: "A.J. Farhan" , ceo:"CEO of Amazon" },
-  { pic: saad, name: "Mohammad Saad" , ceo:"CEO of Jamia" },
+  { pic: nadil, name: "Hossainur Rashid" , ceo:"CEO  of  nothing" },
+  { pic: sagor, name: "Sagor Ahmed" , ceo:"CEO  of  his crush 💖" },
+  { pic: farhan, name: "A.J. Farhan" , ceo:"CEO  of  Amazon" },
+  { pic: saad, name: "Mohammad Saad" , ceo:"CEO  of  Jamia" },
   // Add more review data here
 ];
 
