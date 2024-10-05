@@ -5,7 +5,7 @@ const Review = ({pic,name, ceo }) => {
   return (
     <div className="flex flex-col gap-y-3 " >
       <div className="about flex justify-between ">
-        <div className="reviewer_info flex items-center gap-x-4">
+        <div className="reviewer_info flex items-center gap-x-2 sm:gap-x-4">
           <div className="img w-14 h-14 ">
             <img className=" h-full w-full rounded-full" src={pic} alt={pic} />
           </div>
