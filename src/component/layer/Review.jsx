@@ -30,7 +30,7 @@ const Review = ({pic,name }) => {
         </div>
       </div>
       <div className="comment flex gap-x-4">
-        <div className="blank h-14 aspect-square bg-slate-400  "></div>
+        <div className="blank h-14 aspect-square   "></div>
         <h3  className="text-sm text-[#596780] leading-7">
           We are very happy with the service from the MORENT App. Morent has a
           low price and also a large variety of cars with good and comfortable
