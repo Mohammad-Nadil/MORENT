@@ -9,12 +9,17 @@ import {
 import RootLayout from "./component/RootLayout";
 import Home from "./component/pages/Home";
 import Category from "./component/pages/Category";
+import CategoryList from "./component/CategoryList";
+import Details from "./component/Details";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home/>}></Route>
-      <Route path="/category" element={<Category/>} ></Route>
+      <Route index element={<Home />}></Route>
+      <Route path="/category" element={<Category />}>
+        <Route index element={<CategoryList />}></Route>
+        <Route path="details" element={<Details/>}></Route>
+      </Route>
     </Route>
   )
 );

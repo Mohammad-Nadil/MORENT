@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import ReactPaginate from "react-paginate";
 import car from "/cr-v.png";
 import ProductCard from "./layer/ProductCard";
+import { Link } from "react-router-dom";
 
 // Example items, to simulate fetching from another resources.
 const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,];
@@ -12,13 +13,15 @@ function Items({ currentItems }) {
     <>
       {currentItems &&
         currentItems.map((item) => (
+          <Link to={`details`} >
           <ProductCard
             image={car}
             title="CR - V"
             type="SUV"
             price="80.00"
             className="col-span-1 row-span-1"
-          />
+            
+          /></Link>
         ))}
     </>
   );
