@@ -13,10 +13,10 @@ import farhan from "/farhan.jpg";
 
 // Dummy reviews data
 const reviews = [
-  { pic: nadil, name: "Hossainur Rashid" },
-  { pic: sagor, name: "Sagor Ahmed" },
-  { pic: farhan, name: "A.J. Farhan" },
-  { pic: saad, name: "Mohammad Saad" },
+  { pic: nadil, name: "Hossainur Rashid" , ceo:"CEO of nothing" },
+  { pic: sagor, name: "Sagor Ahmed" , ceo:"CEO of his crush 💖" },
+  { pic: farhan, name: "A.J. Farhan" , ceo:"CEO of Amazon" },
+  { pic: saad, name: "Mohammad Saad" , ceo:"CEO of Jamia" },
   // Add more review data here
 ];
 
@@ -138,7 +138,7 @@ const Details = () => {
           </div>
         </div>
       </div>
-      <div className="review flex flex-col gap-y-8 ">
+      <div className="review flex flex-col gap-y-8 bg-white p-2 padding-5px sm:p-6">
         <div className="head flex gap-x-3 items-center">
           <h2 className="font-semibold text-xl text-primary-text">Reviews </h2>
           <p className="text-sm font-bold text-white py-1.5 px-3 bg-primary rounded">
@@ -147,7 +147,7 @@ const Details = () => {
         </div>
         <div className="main flex flex-col gap-y-12">
           {reviews.slice(0, reviewsToShow).map((review, index) => (
-            <Review key={index} pic={review.pic} name={review.name} />
+            <Review key={index} pic={review.pic} name={review.name} ceo={review.ceo} />
           ))}
         </div>
         <div className="btn flex justify-center ">

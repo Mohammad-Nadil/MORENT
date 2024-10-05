@@ -1,9 +1,9 @@
 import React from "react";
 import { GoStar, GoStarFill } from "react-icons/go";
 
-const Review = ({pic,name }) => {
+const Review = ({pic,name, ceo }) => {
   return (
-    <div className="flex flex-col gap-y-3" >
+    <div className="flex flex-col gap-y-3 " >
       <div className="about flex justify-between ">
         <div className="reviewer_info flex items-center gap-x-4">
           <div className="img w-14 h-14 ">
@@ -12,11 +12,11 @@ const Review = ({pic,name }) => {
           <div className="name flex flex-col gap-y-2">
             <h2 className="font-bold text-xl text-primary-text">{name}</h2>
             <p className="font-medium text-sm text-secondary-text">
-              CEO at Google
+             {ceo}
             </p>
           </div>
         </div>
-        <div className="rating flex flex-col items-end gap-y-2 ">
+        <div className="rating flex flex-col items-end gap-y-2  ">
           <h2 className="font-medium text-sm text-secondary-text">
             21 July 2022
           </h2>
