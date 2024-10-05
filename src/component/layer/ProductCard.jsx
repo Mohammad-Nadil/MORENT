@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ image, title, type, price, className }) => {
   let [heart, setHeart] = useState(false);
   return (
-    <Link to={`/category/details`} >
+    <Link to={`/category/details`}>
       <div
         className={` flex flex-col gap-y-8 font-jakarta bg-white p-6 ${className} `}
       >
@@ -48,9 +48,11 @@ const ProductCard = ({ image, title, type, price, className }) => {
             </p>
           </div>
           <div className="btn">
-            <button className="font-semibold py-2.5 px-5 text-white bg-primary rounded-md hover:bg-primary/75 transition-all duration-300">
-              Rent Now
-            </button>
+            <Link to="/payment">
+              <button className="font-semibold py-2.5 px-5 text-white bg-primary rounded-md hover:bg-primary/75 transition-all duration-300">
+                Rent Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

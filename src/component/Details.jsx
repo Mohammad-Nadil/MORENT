@@ -139,9 +139,11 @@ const Details = () => {
               </p>
             </div>
             <div className="btn">
-              <button className="text-white bg-primary py-4 px-5 rounded-md hover:bg-primary/75 transition-all duration-300">
-                Rent Now
-              </button>
+              <Link to="/payment">
+                <button className="text-white bg-primary py-4 px-5 rounded-md hover:bg-primary/75 transition-all duration-300">
+                  Rent Now
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -189,48 +191,48 @@ const Details = () => {
           </p>
         </div>
         <div className="products grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
-        <ProductCard
-          image={Koenigsegg}
-          title="Koenigsegg"
-          type="Sport"
-          price="99.00"
-          className="col-span-1 row-span-1"
-        />
-        <ProductCard
-          image={NissanGT}
-          title="Nissan GT-R"
-          type="Sport"
-          price="80.00"
-          className="col-span-1 row-span-1"
-        />
-        <ProductCard
-          image={RollsRoyce}
-          title="Rolls - Royce"
-          type="SUV"
-          price="96.00"
-          className="col-span-1 row-span-1"
-        />
-        <ProductCard
-          image={MG_ZX_Exclusice}
-          title="MG ZX Excite"
-          type="SUV"
-          price="74.00"
-          className="col-span-1 row-span-1"
-        />
-        <ProductCard
-          image={AllNewRush}
-          title="All New Rush"
-          type="SUV"
-          price="72.00"
-          className="col-span-1 row-span-1"
-        />
-        <ProductCard
-          image={car}
-          title="CR - V"
-          type="SUV"
-          price="80.00"
-          className="col-span-1 row-span-1"
-        />
+          <ProductCard
+            image={Koenigsegg}
+            title="Koenigsegg"
+            type="Sport"
+            price="99.00"
+            className="col-span-1 row-span-1"
+          />
+          <ProductCard
+            image={NissanGT}
+            title="Nissan GT-R"
+            type="Sport"
+            price="80.00"
+            className="col-span-1 row-span-1"
+          />
+          <ProductCard
+            image={RollsRoyce}
+            title="Rolls - Royce"
+            type="SUV"
+            price="96.00"
+            className="col-span-1 row-span-1"
+          />
+          <ProductCard
+            image={MG_ZX_Exclusice}
+            title="MG ZX Excite"
+            type="SUV"
+            price="74.00"
+            className="col-span-1 row-span-1"
+          />
+          <ProductCard
+            image={AllNewRush}
+            title="All New Rush"
+            type="SUV"
+            price="72.00"
+            className="col-span-1 row-span-1"
+          />
+          <ProductCard
+            image={car}
+            title="CR - V"
+            type="SUV"
+            price="80.00"
+            className="col-span-1 row-span-1"
+          />
         </div>
       </div>
     </div>

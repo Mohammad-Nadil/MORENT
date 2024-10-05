@@ -51,7 +51,7 @@ const PickAndDrop = ({className , divClass  }) => {
         </div>
       </motion.div>
       <div
-        className="switch cursor-pointer h-14 w-14 rounded-xl bg-primary text-white grid place-content-center text-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+        className={`switch cursor-pointer h-14 w-14 rounded-xl bg-primary text-white grid place-content-center text-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-500 ${swap ? "rotate-0":" rotate-180"} `}
         onClick={() => setSwap(!swap)}
          aria-label="Swap Pick-Up and Drop-Off"
       >

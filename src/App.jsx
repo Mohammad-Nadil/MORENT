@@ -11,6 +11,7 @@ import Home from "./component/pages/Home";
 import Category from "./component/pages/Category";
 import CategoryList from "./component/CategoryList";
 import Details from "./component/Details";
+import Payment from "./component/pages/Payment";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
         <Route index element={<CategoryList />}></Route>
         <Route path="details" element={<Details/>}></Route>
       </Route>
+      <Route path="/payment" element={<Payment/>} ></Route>
     </Route>
   )
 );
