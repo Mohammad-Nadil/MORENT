@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import BillingHead from "./layer/BillingHead";
 import Input from "./layer/Input";
 import safety from "/safetyLogo.png";
+import visa from "/visa.png";
+import paypal from "/paypal.png";
+import bitcoin from "/bitcoin.png";
 
 const BillForm = () => {
+
+  let [ show , setShow] = useState(false)
+
   let [name, setName] = useState("");
   let [nameErr, setNameErr] = useState(true);
   let manageName = (element) => {
@@ -60,13 +66,45 @@ const BillForm = () => {
     setDropTimeErr("");
   };
 
+  let [cardNumber, setCardNumber] = useState("");
+  let [cardNumberErr, setCardNumberErr] = useState("");
+  let manageCardNumber = (element) => {
+    setCardNumber(element.target.value);
+    setCardNumberErr("");
+  };
+
+  let [expirationDate, setExpirationDate] = useState("");
+  let [expirationDateErr, setExpirationDateErr] = useState("");
+  let manageExpirationDate = (element) => {
+    setExpirationDate(element.target.value);
+    setExpirationDateErr("");
+  };
+
+   let [cardHolder, setCardHolder] = useState("");
+   let [cardHolderErr, setCardHolderErr] = useState("");
+   let manageCardHolder = (element) => {
+     setCardHolder(element.target.value);
+     setCardHolderErr("");
+   };
+
+   let [cvc, setCvc] = useState("");
+   let [cvcErr, setCvcErr] = useState("");
+   let manageCvc = (element) => {
+     setCvc(element.target.value);
+     setCvcErr("");
+   };
+
   // let [isNewsLetterChecked, setIsNewsLetterChecked] = useState(false);
   // let [newsLetterErr, setNewsLetterErr] = useState("");
 
   let [isTermsChecked, setIsTermsChecked] = useState(false);
   let [termsCheckedErr, setTermsCheckedErr] = useState("");
 
-  let [ confirm , setConfirm] = useState("")
+  let [confirm, setConfirm] = useState("");
+
+  // State variables
+
+  // Handlers
 
   let handleNewsLetterChange = (e) => {
     setIsNewsLetterChecked(e.target.checked);
@@ -118,6 +156,22 @@ const BillForm = () => {
       setDropTimeErr("Drop-off time is required");
       isValid = false;
     }
+    if (!cardNumber) {
+      setCardNumberErr("Card number is required");
+      isValid = false;
+    }
+    if (!expirationDate) {
+      setExpirationDateErr("Expiration date is required");
+      isValid = false;
+    }
+    if (!cardHolder) {
+      setCardHolderErr("Card holder name is required");
+      isValid = false;
+    }
+    if (!cvc) {
+      setCvcErr("CVC is required");
+      isValid = false;
+    }
 
     // Validate Checkboxes
     // if (!isNewsLetterChecked) {
@@ -131,16 +185,16 @@ const BillForm = () => {
 
     if (isValid) {
       // Proceed with form submission
-      setConfirm("Order has been confirmed")
+      setConfirm("Order has been confirmed");
       // Reset form or perform other actions as needed
     }
   };
-  let errCss = `text-sm text text-red-500 absolute top-full  `;
+  let errCss = `text-sm text-red-500 absolute top-full  `;
 
   return (
     <>
       <div className="billing_form xl:w-2/3 flex flex-col gap-y-8 font-jakarta">
-        <div className=" billing-name p-6 bg-white flex flex-col gap-y-8 rounded-xl">
+        <div className=" billing-name p-3 md:p-6 bg-white flex flex-col gap-y-8 rounded-xl">
           <BillingHead title="Billing Info" step="1" />
           <div className="inputs grid md:grid-cols-2 md:grid-rows-2 gap-x-8 gap-y-6">
             <Input
@@ -154,7 +208,7 @@ const BillForm = () => {
             </Input>
             <Input
               title="Phone Number"
-              type="number"
+              type="tel"
               id="number"
               value={inpNumber}
               onChange={manageInpNumber}
@@ -181,7 +235,7 @@ const BillForm = () => {
             </Input>
           </div>
         </div>
-        <div className="rental-info bg-white p-6 rounded-xl flex flex-col gap-y-8">
+        <div className="rental-info bg-white p-3 md:p-6 rounded-xl flex flex-col gap-y-8">
           <BillingHead title="Rental Info" step="2" />
           <div className="pick  flex flex-col gap-y-4">
             <h2 className="font-semibold text-primary-text">Pick - Up</h2>
@@ -264,7 +318,72 @@ const BillForm = () => {
             </div>
           </div>
         </div>
-        <div className="submit rounded-xl bg-white p-2 md:p-6 flex flex-col gap-y-6 md:gap-y-9">
+        <div className="paymentMethod bg-white p-3 md:p-6 rounded-xl flex flex-col gap-y-5 md:gap-y-8">
+          <BillingHead title="Payment Method" step="3" />
+          <label onClick={()=>setShow(true)}
+            className="flex flex-col gap-y-8 w-full py-4 bg-secondary px-8 rounded-xl "
+            htmlFor="card"
+          >
+            <div className="flex justify-between items-center ">
+              <input type="radio" name="payment" id="card" />
+              <img src={visa} alt={visa} />
+            </div>
+            {show && (
+            <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
+              <Input
+                title="Card Number"
+                type="number"
+                className="bg-white"
+                value={cardNumber}
+                onChange={manageCardNumber}
+              >
+                <p className={errCss}>{cardNumberErr}</p>
+              </Input>
+              <Input
+                title="Expiration Date"
+                type="date"
+                className="bg-white"
+                value={expirationDate}
+                onChange={manageExpirationDate}
+              >
+                <p className={errCss}>{expirationDateErr}</p>
+              </Input>
+              <Input
+                title="Card Holder"
+                type="text"
+                className="bg-white"
+                value={cardHolder}
+                onChange={manageCardHolder}
+              >
+                <p className={errCss}>{cardHolderErr}</p>
+              </Input>
+              <Input
+                title="CVC"
+                type="number"
+                className="bg-white"
+                value={cvc}
+                onChange={manageCvc}
+              >
+                <p className={errCss}>{cvcErr}</p>
+              </Input>
+            </div>)}
+          </label>
+          <label onClick={()=>setShow(false)}
+            className="flex items-center justify-between w-full py-4 bg-secondary px-8 rounded-xl text-end"
+            htmlFor="paypal"
+          >
+            <input type="radio" name="payment" id="paypal" />
+            <img src={paypal} alt={paypal} />
+          </label>
+          <label onClick={()=>setShow(false)}
+            className="flex items-center justify-between w-full py-4 bg-secondary px-8 rounded-xl text-end"
+            htmlFor="bitcoin"
+          >
+            <input type="radio" name="payment" id="bitcoin" />
+            <img src={bitcoin} alt={bitcoin} />
+          </label>
+        </div>
+        <div className="submit rounded-xl bg-white p-3 md:p-6 flex flex-col gap-y-6 md:gap-y-9">
           <div className="head flex gap-x-6 sm:justify-between items-baseline md:items-end">
             <div className="title flex flex-col gap-y-1">
               <h2 className="font-bold text-xl text-primary-text">
@@ -275,7 +394,7 @@ const BillForm = () => {
                 ready!
               </p>
             </div>
-            <div className="step text-xs sm:text-base font-medium text-secondary-text w-5/12 sm:w-auto">
+            <div className="step  font-medium text-secondary-text w-5/12 sm:w-auto">
               <p>Step 4 of 4</p>
             </div>
           </div>
@@ -313,7 +432,9 @@ const BillForm = () => {
               </span>
             </label>
             {termsCheckedErr && (
-              <p className="text-sm text-red-500 absolute top-full">{termsCheckedErr}</p>
+              <p className="text-sm text-red-500 absolute top-full">
+                {termsCheckedErr}
+              </p>
             )}
           </div>
           <div className="btn flex justify-between items-center">
@@ -323,7 +444,8 @@ const BillForm = () => {
             >
               Rent Now
             </button>
-            <p className=" text-xs sm:text-3xl font-bold text-sky-400" >{confirm}
+            <p className=" text-xs sm:text-3xl font-bold text-sky-400">
+              {confirm}
             </p>
           </div>
           <div className="safety flex flex-col gap-y-4">
