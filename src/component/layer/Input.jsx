@@ -2,7 +2,7 @@ import React from "react";
 
 const Input = ({ title, type , id , value , children ,onChange, name , className}) => {
   return (
-    <div className=" w-full md:w-auto flex flex-col gap-y-4 relative">
+    <div className={`w-full md:w-auto flex flex-col gap-y-4 relative`}>
       <label htmlFor={id} className="font-semibold text-primary-text">
         {title}
       </label>

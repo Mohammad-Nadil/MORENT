@@ -263,6 +263,7 @@ const BillForm = () => {
                 id="pick-time"
                 value={pickTime}
                 onChange={managePickTime}
+                className="w-full md:w-auto"
               >
                 <p className={errCss}>{pickTimeErr}</p>
               </Input>
@@ -272,6 +273,7 @@ const BillForm = () => {
                 id="pick-date"
                 value={pickDate}
                 onChange={managePickDate}
+                className="w-full md:w-auto"
               >
                 <p className={errCss}>{pickDateErr}</p>
               </Input>
@@ -303,6 +305,7 @@ const BillForm = () => {
                 id="drop-time"
                 value={dropTime}
                 onChange={manageDropTime}
+                className="w-full md:w-auto"
               >
                 <p className={errCss}>{dropTimeErr}</p>
               </Input>
@@ -312,6 +315,7 @@ const BillForm = () => {
                 id="drop-date"
                 value={dropDate}
                 onChange={manageDropDate}
+                className="w-full md:w-auto"
               >
                 <p className={errCss}>{dropDateErr}</p>
               </Input>
@@ -333,7 +337,7 @@ const BillForm = () => {
               <Input
                 title="Card Number"
                 type="number"
-                className="bg-white"
+                className="bg-white w-full md:w-auto"
                 value={cardNumber}
                 onChange={manageCardNumber}
               >
@@ -342,7 +346,7 @@ const BillForm = () => {
               <Input
                 title="Expiration Date"
                 type="date"
-                className="bg-white"
+                className="bg-white w-full md:w-auto"
                 value={expirationDate}
                 onChange={manageExpirationDate}
               >
@@ -360,7 +364,7 @@ const BillForm = () => {
               <Input
                 title="CVC"
                 type="number"
-                className="bg-white"
+                className="bg-white w-full md:w-auto"
                 value={cvc}
                 onChange={manageCvc}
               >
