@@ -321,15 +321,15 @@ const BillForm = () => {
         <div className="paymentMethod bg-white p-3 md:p-6 rounded-xl flex flex-col gap-y-5 md:gap-y-8">
           <BillingHead title="Payment Method" step="3" />
           <label onClick={()=>setShow(true)}
-            className="flex flex-col gap-y-8 w-full py-4 bg-secondary px-8 rounded-xl "
+            className="flex flex-col gap-y-8 w-full py-4 bg-secondary px-4 md:px-8 rounded-xl "
             htmlFor="card"
           >
-            <div className="flex justify-between items-center ">
+            <div className="flex justify-between items-center w-full ">
               <input type="radio" name="payment" id="card" />
               <img src={visa} alt={visa} />
             </div>
             {show && (
-            <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
+            <div className="grid w-full md:w-auto grid-cols-1 md:grid-cols-2 md:gap-x-8 gap-y-6">
               <Input
                 title="Card Number"
                 type="number"
@@ -369,14 +369,14 @@ const BillForm = () => {
             </div>)}
           </label>
           <label onClick={()=>setShow(false)}
-            className="flex items-center justify-between w-full py-4 bg-secondary px-8 rounded-xl text-end"
+            className="flex items-center justify-between w-full py-4 bg-secondary px-4 md:px-8 rounded-xl text-end"
             htmlFor="paypal"
           >
             <input type="radio" name="payment" id="paypal" />
             <img src={paypal} alt={paypal} />
           </label>
           <label onClick={()=>setShow(false)}
-            className="flex items-center justify-between w-full py-4 bg-secondary px-8 rounded-xl text-end"
+            className="flex items-center justify-between w-full py-4 bg-secondary px-4 md:px-8 rounded-xl text-end"
             htmlFor="bitcoin"
           >
             <input type="radio" name="payment" id="bitcoin" />
