@@ -389,7 +389,7 @@ const BillForm = () => {
         </div>
         <div className="submit rounded-xl bg-white p-3 md:p-6 flex flex-col gap-y-6 md:gap-y-9">
           <div className="head flex gap-x-6 sm:justify-between items-baseline md:items-end">
-            <div className="title flex flex-col w-8/12 gap-y-1">
+            <div className="title flex flex-col w-8/12 sm:w-auto gap-y-1">
               <h2 className="font-bold text-xl text-primary-text">
                 Confirmation
               </h2>

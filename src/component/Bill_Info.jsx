@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import car1 from "/NissanGT-R.png";
 import car2 from "/Koenigsegg.png";
 import car3 from "/Rolls-Royce.png";
 import PaymentCard from "./layer/PaymentCard";
 
 const Bill_Info = () => {
-  let payment = [
+  // Convert payment to a stateful array
+  const [payment, setPayment] = useState([
     {
       pic: car1,
       name: "Nissan GT - R",
@@ -24,8 +25,7 @@ const Bill_Info = () => {
       total: "96.00",
       tax: "30.00",
     },
-    // Add more review data here
-  ];
+  ]);
 
   // Function to calculate the total rental price (sum of all totals + taxes)
   const calculateTotalAmount = () => {
@@ -34,19 +34,32 @@ const Bill_Info = () => {
     }, 0);
   };
 
+  // Function to remove a payment item by index
+  const removeItem = (indexToRemove) => {
+    const updatedPayment = payment.filter((_, index) => index !== indexToRemove);
+    setPayment(updatedPayment);
+  };
+
   const totalAmount = calculateTotalAmount();
 
   return (
-    <div className="pb-8 w-full xl:w-1/3" >
-      <div className="payment_cards  flex flex-col gap-y-6  ">
+    <div className="pb-8 w-full xl:w-1/3">
+      <div className="payment_cards flex flex-col gap-y-6">
         {payment.map((payment, index) => (
-          <PaymentCard
-            key={index}
-            pic={payment.pic}
-            name={payment.name}
-            total={payment.total}
-            tax={payment.tax}
-          />
+          <div key={index} className="relative">
+            <PaymentCard
+              pic={payment.pic}
+              name={payment.name}
+              total={payment.total}
+              tax={payment.tax}
+            />
+            <button
+              className="absolute top-0 right-0 bg-red-400/75 text-white p-2 rounded"
+              onClick={() => removeItem(index)} // Remove item when button is clicked
+            >
+              Cancel
+            </button>
+          </div>
         ))}
         <div className="total p-6 bg-white rounded-xl flex justify-between items-center">
           <div className="text flex flex-col gap-y-1">
@@ -57,7 +70,7 @@ const Bill_Info = () => {
               Overall price and includes rental discount
             </p>
           </div>
-          <div className="amount font-bold text-2xl sm:text-3xl text-primary-text ">
+          <div className="amount font-bold text-2xl sm:text-3xl text-primary-text">
             ${totalAmount.toFixed(2)}
           </div>
         </div>
