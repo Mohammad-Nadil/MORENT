@@ -9,8 +9,11 @@ import RollsRoyce from "/Rolls-Royce.png";
 import NissanGT from "/NissanGT-R.png";
 import AllNewRush from "/AllNewRush.png";
 import MG_ZX_Exclusice from "/MG-ZX-Exclusice.png";
+import { useSelector } from "react-redux";
 
 const Popular = () => {
+  let cars = useSelector((state) => state.rent.allCars);
+
   let [active, setActive] = useState(0);
   var settings = {
     dots: true,
@@ -83,54 +86,24 @@ const Popular = () => {
       </Container>
       <Container>
         <Slider {...settings}>
-          <div className="px-2.5">
-            <ProductCard
-              image={Koenigsegg}
-              title="Koenigsegg"
-              type="Sport"
-              price="99.00"
-            />{" "}
-          </div>
-          <div className="px-2.5">
-            <ProductCard
-              image={RollsRoyce}
-              title="Rolls - Royce"
-              type="SUV"
-              price="96.00"
-            />{" "}
-          </div>
-          <div className="px-2.5">
-            <ProductCard
-              image={AllNewRush}
-              title="All New Rush"
-              type="SUV"
-              price="72.00"
-            />{" "}
-          </div>
-          <div className="px-2.5">
-            <ProductCard
-              image={NissanGT}
-              title="Nissan GT-R"
-              type="Sport"
-              price="80.00"
-            />{" "}
-          </div>
-          <div className="px-2.5">
-            <ProductCard
-              image={MG_ZX_Exclusice}
-              title="MG ZX Excite"
-              type="SUV"
-              price="74.00"
-            />{" "}
-          </div>
-          <div className="px-2.5">
-            <ProductCard
-              image={car}
-              title="CR - V"
-              type="SUV"
-              price="80.00"
-            />{" "}
-          </div>
+          {cars
+            .filter((element, index) => index >= 0 && index <= 7)
+            .map((item) => (
+              <div key={item.id} className="px-2.5">
+                <ProductCard
+                  image={item.image}
+                  title={item.name}
+                  type={item.type}
+                  price={item.rental_price_per_day}
+                  transmission={item.transmission}
+                  seat={item.seat_capacity}
+                  fuel_capacity={item.fuel_capacity}
+                  // toLink={`/category/${item.id}`}
+                  toLink={`/category/details`}
+                  product={item}
+                />
+              </div>
+            ))}
         </Slider>
       </Container>
     </div>

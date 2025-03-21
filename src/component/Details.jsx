@@ -11,13 +11,14 @@ import nadil from "/nadil.jpg";
 import saad from "/saad.jpg";
 import farhan from "/farhan.jpg";
 import { Link } from "react-router-dom";
-import car from "/cr-v.png";
-import Koenigsegg from "/Koenigsegg.png";
-import RollsRoyce from "/Rolls-Royce.png";
-import NissanGT from "/NissanGT-R.png";
-import MG_ZX_Exclusice from "/MG-ZX-Exclusice.png";
-import AllNewRush from "/AllNewRush.png";
+// import car from "/cr-v.png";
+// import Koenigsegg from "/Koenigsegg.png";
+// import RollsRoyce from "/Rolls-Royce.png";
+// import NissanGT from "/NissanGT-R.png";
+// import MG_ZX_Exclusice from "/MG-ZX-Exclusice.png";
+// import AllNewRush from "/AllNewRush.png";
 import ProductCard from "./layer/ProductCard";
+import { useSelector } from "react-redux";
 
 // Dummy reviews data
 const reviews = [
@@ -36,6 +37,8 @@ const Details = () => {
 
   // Number of reviews to display initially
   let reviewsToShow = showAll ? reviews.length : 1;
+
+  let car = useSelector((state) => state.rent.allCars);
 
   return (
     <div className="font-jakarta flex flex-col gap-y-8 w-full xl:w-3/4 pt-4 xl:px-8 ">
@@ -191,48 +194,22 @@ const Details = () => {
           </p>
         </div>
         <div className="products grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
-          <ProductCard
-            image={Koenigsegg}
-            title="Koenigsegg"
-            type="Sport"
-            price="99.00"
-            className="col-span-1 row-span-1"
-          />
-          <ProductCard
-            image={NissanGT}
-            title="Nissan GT-R"
-            type="Sport"
-            price="80.00"
-            className="col-span-1 row-span-1"
-          />
-          <ProductCard
-            image={RollsRoyce}
-            title="Rolls - Royce"
-            type="SUV"
-            price="96.00"
-            className="col-span-1 row-span-1"
-          />
-          <ProductCard
-            image={MG_ZX_Exclusice}
-            title="MG ZX Excite"
-            type="SUV"
-            price="74.00"
-            className="col-span-1 row-span-1"
-          />
-          <ProductCard
-            image={AllNewRush}
-            title="All New Rush"
-            type="SUV"
-            price="72.00"
-            className="col-span-1 row-span-1"
-          />
-          <ProductCard
-            image={car}
-            title="CR - V"
-            type="SUV"
-            price="80.00"
-            className="col-span-1 row-span-1"
-          />
+          {car.slice(0, 6).map((car) => (
+            <ProductCard
+              key={car.id}
+              image={car.image}
+              title={car.name}
+              type={car.type}
+              price={car.rental_price_per_day}
+              transmission={car.transmission}
+              seat={car.seat_capacity}
+              product={car}
+              fuel_capacity={car.fuel_capacity}
+              // toLink={`/category/${car.id}`}
+              toLink={`/category/details`}
+              className="col-span-1 row-span-1"
+            />
+          ))}
         </div>
       </div>
     </div>

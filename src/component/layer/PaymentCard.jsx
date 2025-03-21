@@ -1,13 +1,15 @@
 import React from "react";
 import { GoStar, GoStarFill } from "react-icons/go";
-import "../../App.css"
+import "../../App.css";
 
-const PaymentCard = ({name , pic , total , tax}) => {
+const PaymentCard = ({ name, pic, total, tax }) => {
   return (
     <div className="w-full p-6 bg-white rounded-xl">
       <div className="top flex flex-col gap-y-6 md:gap-y-8 border-b pb-6 md:pb-8 border-[#C3D4E966]/40">
         <div className="head flex flex-col gap-y-1 ">
-          <p className="font-bold sm:text-xl text-primary-text">Rental Summary</p>
+          <p className="font-bold sm:text-xl text-primary-text">
+            Rental Summary
+          </p>
           <h2 className="font-medium text-xs sm:text-sm text-secondary-text">
             Prices may change depending on the length of the rental and the
             price of your rental car.
@@ -41,17 +43,35 @@ const PaymentCard = ({name , pic , total , tax}) => {
       <div className="bottom pt-4 md:pt-8 flex flex-col gap-y-8">
         <div className="price flex flex-col gap-y-3 md:gap-y-6">
           <div className="bill flex items-center justify-between">
-            <p className="font-medium text-sm md:text-base text-secondary-text">Subtotal</p>
+            <p className="font-medium text-sm md:text-base text-secondary-text">
+              Subtotal
+            </p>
             <h2 className="font-semibold text-primary-text">${total}</h2>
           </div>
           <div className="tax flex items-center justify-between">
-            <p className="font-medium text-sm md:text-base text-secondary-text">Tax</p>
+            <p className="font-medium text-sm md:text-base text-secondary-text">
+              Tax
+            </p>
             <h2 className="font-semibold text-primary-text">${tax}</h2>
           </div>
         </div>
-        <form className="promo_code text-sm md:text-base py-2.5 sm:py-4 px-2.5 sm:px-8 bg-secondary flex justify-between rounded-lg" action="">
-            <input className="bg-transparent outline-none" type="text" id="code" placeholder="Apply promo code" />
-            <button className="bg-primary hover:bg-primary/60 transition-all duration-300 text-white py-2 px-3 rounded-lg " type="submit"> Apply now</button>
+        <form
+          className="promo_code text-sm md:text-base py-2.5 sm:py-4 px-2.5 sm:px-8 bg-secondary flex justify-between rounded-lg"
+          action=""
+        >
+          <input
+            className="bg-transparent outline-none"
+            type="text"
+            id="code"
+            placeholder="Apply promo code"
+          />
+          <button
+            className="bg-primary hover:bg-primary/60 transition-all duration-300 text-white py-2 px-3 rounded-lg "
+            type="submit"
+          >
+            {" "}
+            Apply now
+          </button>
         </form>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import "./App.css";
 import {
   createBrowserRouter,
@@ -27,7 +27,6 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>

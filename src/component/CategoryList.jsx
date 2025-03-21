@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 
 const CategoryList = () => {
     // Set initial itemsPerPage to 12
-  let [itemsPerPage, setItemsPerPage] = useState(12);
+  let [itemsPerPage, setItemsPerPage] = useState(6);
 
   // Function to increase itemsPerPage by 12
   let increaseItemsPerPage = () => {
-    setItemsPerPage(itemsPerPage + 12);
+    setItemsPerPage(itemsPerPage + 6);
   };
   return (
     <div className="main w-full xl:w-3/4 gap-8 flex flex-col pt-3 xl:pl-5 ">

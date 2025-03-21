@@ -2,5 +2,5 @@
     line-height: 28px !important;
 }
 .payment-bg{
-    background: url(../public/paymentBg.jpg) ;
+    background: url(/paymentBg.jpg) ;
 }
