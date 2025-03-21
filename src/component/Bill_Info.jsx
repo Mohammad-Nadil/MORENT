@@ -6,7 +6,7 @@ import { removeFromRent } from "../features/rent/rentSlice.js";
 const Bill_Info = () => {
   let items = useSelector((state) => state.rent.toRent);
   let dispatch = useDispatch();
-
+  let total = useSelector((state) => state.rent.totalRentPrice);
   return (
     <div className="pb-8 w-full xl:w-1/3">
       <div className="payment_cards flex flex-col gap-y-6">
@@ -36,7 +36,7 @@ const Bill_Info = () => {
             </p>
           </div>
           <div className="amount font-bold text-2xl sm:text-3xl text-primary-text">
-            000
+            {total.toFixed(2)}
           </div>
         </div>
       </div>
