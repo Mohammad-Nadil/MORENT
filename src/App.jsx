@@ -19,7 +19,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />}></Route>
       <Route path="/category" element={<Category />}>
         <Route index element={<CategoryList />}></Route>
-        <Route path="details" element={<Details/>}></Route>
+        <Route path="product/:id" element={<Details/>}></Route>
       </Route>
       <Route path="/payment" element={<Payment/>} ></Route>
     </Route>

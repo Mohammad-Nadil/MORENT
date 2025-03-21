@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import Container from "./layer/Container";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { FaHeart } from "react-icons/fa";
-import { BsFillFuelPumpFill } from "react-icons/bs";
-import { GiCarSeat, GiGearStickPattern } from "react-icons/gi";
-import { motion } from "framer-motion";
 import ProductCard from "./layer/ProductCard";
 
 const Recommendation = () => {
@@ -35,8 +31,7 @@ const Recommendation = () => {
             transmission={car.transmission}
             seat={car.seat_capacity}
             fuel_capacity={car.fuel_capacity}
-            // toLink={`/category/${car.id}`}
-            toLink={`/category/details`}
+            toLink={"category/product/" + car.id}
             product={car}
           />
         ))}

@@ -20,8 +20,7 @@ function Items({ currentItems }) {
             seat={item.seat_capacity}
             fuel_capacity={item.fuel_capacity}
             product={item}
-            // toLink={`/category/${item.id}`}
-            toLink={`/category/details`}
+            toLink={"product/" + item.id}
             className="col-span-1 row-span-1"
           />
         ))}

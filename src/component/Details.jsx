@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import mainPic from "../assets/main.jpg";
-import view1 from "../assets/View1.jpg";
-import view2 from "../assets/View2.jpg";
-import view3 from "../assets/View3.jpg";
 import { GoStar, GoStarFill } from "react-icons/go";
 import { FaAngleDown, FaAngleUp, FaHeart } from "react-icons/fa";
 import Review from "./layer/Review";
@@ -10,15 +6,10 @@ import sagor from "/sagor.jpg";
 import nadil from "/nadil.jpg";
 import saad from "/saad.jpg";
 import farhan from "/farhan.jpg";
-import { Link } from "react-router-dom";
-// import car from "/cr-v.png";
-// import Koenigsegg from "/Koenigsegg.png";
-// import RollsRoyce from "/Rolls-Royce.png";
-// import NissanGT from "/NissanGT-R.png";
-// import MG_ZX_Exclusice from "/MG-ZX-Exclusice.png";
-// import AllNewRush from "/AllNewRush.png";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import ProductCard from "./layer/ProductCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addToRent } from "../features/rent/rentSlice.js";
 
 // Dummy reviews data
 const reviews = [
@@ -30,8 +21,14 @@ const reviews = [
 ];
 
 const Details = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/category/product/${id}");
+  };
+
   let [heart, setHeart] = useState(false);
-  let [view, setView] = useState(mainPic); // Initialize with mainPic
+  let [view, setView] = useState(0); // Initialize with mainPic
 
   let [showAll, setShowAll] = useState(false); // State to control showing all reviews
 
@@ -39,45 +36,48 @@ const Details = () => {
   let reviewsToShow = showAll ? reviews.length : 1;
 
   let car = useSelector((state) => state.rent.allCars);
-
+  let dispatch = useDispatch()
+  const { id } = useParams();
+  let products = useSelector((state) =>
+    state.rent.allCars.find((item) => item.id === Number(id))
+  );
   return (
     <div className="font-jakarta flex flex-col gap-y-8 w-full xl:w-3/4 pt-4 xl:px-8 ">
       <div className="details bg-slate-100 flex flex-col lg:flex-row gap-8 w-full">
         <div className="images flex flex-col  gap-y-4 md:gap-y-6 lg:w-1/2  ">
           <div className="top w-full  ">
             <img
-              className="w-full aspect-[10/7.5] rounded-3xl "
-              src={view}
+              className="w-full aspect-[10/7.5] object-cover rounded-3xl "
+              src={products.gallery[view]}
               alt="view"
             />
           </div>
-          <div className="bottom flex gap-x-6 justify-between w-full ">
+          <div className="bottom grid grid-cols-3 gap-x-6 justify-between w-full ">
             <div
-              className="flex-auto cursor-pointer"
-              onClick={() => setView(mainPic)}
+              className="flex-auto cursor-pointer aspect-[10/8] rounded-lg overflow-hidden object-cover"
+              onClick={() => setView(0)}
             >
-              <img className="w-full" src={view1} alt="View 1 of Nissan GT-R" />
+              <img className="w-full h-full object-cover" src={products.gallery[0]} alt="car image" />
             </div>
             <div
-              className="flex-auto cursor-pointer"
-              onClick={() => setView(view2)}
+              className="flex-auto cursor-pointer aspect-[10/8] rounded-lg overflow-hidden object-cover"
+              onClick={() => setView(1)}
             >
-              <img className="w-full" src={view2} alt="view" />
+              <img className="w-full h-full object-cover" src={products.gallery[1]} alt="car image" />
             </div>
             <div
-              className="flex-auto cursor-pointer"
-              onClick={() => setView(view3)}
+              className="flex-auto cursor-pointer aspect-[10/8] rounded-lg overflow-hidden object-cover "
+              onClick={() => setView(2)}
             >
-              <img className="w-full" src={view3} alt="view" />
+              <img className="w-full h-full object-cover" src={products.gallery[2]} alt="car image" />
             </div>
           </div>
         </div>
-        <div className="info flex flex-col gap-y-8 justify-between rounded-xl lg:w-1/2 p-2 sm:p-6 bg-white ">
+        <div className="info flex flex-col gap-y-8 justify-between rounded-xl lg:w-1/2 p-2 sm:p-4 bg-white ">
           <div className="title flex justify-between ">
             <div className="left flex flex-col gap-y-2.5">
               <div className="name text-3xl font-bold text-primary-text ">
-                {" "}
-                Nissan GT - R
+                {products.name}
               </div>
               <div className="review flex items-center gap-x-2">
                 <div className="icon flex gap-x-0.5 text-yellow-400">
@@ -104,44 +104,42 @@ const Details = () => {
           </div>
           <div className="description">
             <p className="text-xl text-primary-text leading-9">
-              NISMO has become the embodiment of Nissan's outstanding
-              performance, inspired by the most unforgiving proving ground, the
-              "race track".
+              {products.description}
             </p>
           </div>
           <div className="specification flex flex-col sm:flex-row gap-y-4 sm:gap-20 lg:gap-x-6 text-xl text-primary-text">
             <div className="left flex flex-col gap-y-4 lg:gap-y-2 sm:w-1/2 ">
               <div className="top flex justify-between items-center ">
                 <h2 className="text-secondary-text ">Type Car :</h2>
-                <p className="font-semibold">Sport</p>
+                <p className="font-semibold">{products.type}</p>
               </div>
               <div className="bottom flex justify-between items-center ">
                 <h2 className="text-secondary-text ">Capacity :</h2>
-                <p className="font-semibold">2 Person</p>
+                <p className="font-semibold">{products.seat_capacity} Person</p>
               </div>
             </div>
             <div className="right flex flex-col gap-y-4 lg:gap-y-2 sm:w-1/2 ">
               <div className="top flex justify-between items-center ">
                 <h2 className="text-secondary-text ">Steering :</h2>
-                <p className="font-semibold">Manual</p>
+                <p className="font-semibold">{products.transmission}</p>
               </div>
               <div className="bottom flex justify-between items-center ">
                 <h2 className="text-secondary-text ">Gasoline :</h2>
-                <p className="font-semibold">70L</p>
+                <p className="font-semibold">{products.fuel_capacity}L</p>
               </div>
             </div>
           </div>
           <div className="price flex justify-between items-center">
             <div className="mrp font-bold ">
               <h2 className="flex items-center gap-1.5 text-[1.75rem]">
-                $80.00
+                ${products.rental_price_per_day}
                 <span className="text-base text-secondary-text">days</span>
               </h2>
               <p className="text-secondary-text">
                 <del>$100.00</del>
               </p>
             </div>
-            <div className="btn">
+            <div className="btn" onClick={()=> dispatch(addToRent(products))}>
               <Link to="/payment">
                 <button className="text-white bg-primary py-4 px-5 rounded-md hover:bg-primary/75 transition-all duration-300">
                   Rent Now
@@ -195,20 +193,23 @@ const Details = () => {
         </div>
         <div className="products grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {car.slice(0, 6).map((car) => (
-            <ProductCard
+            <div
               key={car.id}
-              image={car.image}
-              title={car.name}
-              type={car.type}
-              price={car.rental_price_per_day}
-              transmission={car.transmission}
-              seat={car.seat_capacity}
-              product={car}
-              fuel_capacity={car.fuel_capacity}
-              // toLink={`/category/${car.id}`}
-              toLink={`/category/details`}
-              className="col-span-1 row-span-1"
-            />
+              onClick={() => navigate(`/category/product/${car.id}`)}
+            >
+              <ProductCard
+                image={car.image}
+                title={car.name}
+                type={car.type}
+                price={car.rental_price_per_day}
+                transmission={car.transmission}
+                seat={car.seat_capacity}
+                product={car}
+                fuel_capacity={car.fuel_capacity}
+                toLink={""}
+                className="col-span-1 row-span-1 sm:p-4 "
+              />
+            </div>
           ))}
         </div>
       </div>
