@@ -84,12 +84,12 @@ const Popular = () => {
           </Link>
         </p>
       </Container>
-      <Container>
+      <Container className={"px-0"}>
         <Slider {...settings}>
           {cars
             .filter((element, index) => index >= 0 && index <= 7)
             .map((item) => (
-              <div key={item.id} className="px-2.5">
+              <div key={item.id} className="px-1.5">
                 <ProductCard
                   image={item.image}
                   title={item.name}

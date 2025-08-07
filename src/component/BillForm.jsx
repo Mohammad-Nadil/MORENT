@@ -102,9 +102,6 @@ const BillForm = () => {
 
   let [confirm, setConfirm] = useState("");
 
-  // State variables
-
-  // Handlers
 
   let handleNewsLetterChange = (e) => {
     setIsNewsLetterChecked(e.target.checked);
@@ -184,9 +181,21 @@ const BillForm = () => {
     }
 
     if (isValid) {
-      // Proceed with form submission
       setConfirm("Order has been confirmed");
-      // Reset form or perform other actions as needed
+      setName("");
+      setInpNumber("");
+      setAddress("");
+      setCity("");
+      setPickDate("");
+      setPickTime("");
+      setDropDate("");
+      setDropTime("");
+      setCardNumber("");
+      setExpirationDate("");
+      setCardHolder("");
+      setCvc("");
+      // setIsNewsLetterChecked(false);
+      setIsTermsChecked(false);
     }
   };
   let errCss = `text-sm text-red-500 absolute top-full  `;

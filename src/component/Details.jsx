@@ -36,7 +36,7 @@ const Details = () => {
   let reviewsToShow = showAll ? reviews.length : 1;
 
   let car = useSelector((state) => state.rent.allCars);
-  let dispatch = useDispatch()
+  let dispatch = useDispatch();
   const { id } = useParams();
   let products = useSelector((state) =>
     state.rent.allCars.find((item) => item.id === Number(id))
@@ -52,25 +52,20 @@ const Details = () => {
               alt="view"
             />
           </div>
-          <div className="bottom grid grid-cols-3 gap-x-6 justify-between w-full ">
-            <div
-              className="flex-auto cursor-pointer aspect-[10/8] rounded-lg overflow-hidden object-cover"
-              onClick={() => setView(0)}
-            >
-              <img className="w-full h-full object-cover" src={products.gallery[0]} alt="car image" />
-            </div>
-            <div
-              className="flex-auto cursor-pointer aspect-[10/8] rounded-lg overflow-hidden object-cover"
-              onClick={() => setView(1)}
-            >
-              <img className="w-full h-full object-cover" src={products.gallery[1]} alt="car image" />
-            </div>
-            <div
-              className="flex-auto cursor-pointer aspect-[10/8] rounded-lg overflow-hidden object-cover "
-              onClick={() => setView(2)}
-            >
-              <img className="w-full h-full object-cover" src={products.gallery[2]} alt="car image" />
-            </div>
+          <div className="bottom grid grid-cols-3 gap-x-6 justify-between w-full">
+            {products.gallery.slice(0, 3).map((img, index) => (
+              <div
+                key={index}
+                className="flex-auto cursor-pointer aspect-[10/8] rounded-lg overflow-hidden object-cover hover:scale-105 duration-300 hover:shadow-lg hover:shadow-gray-400 "
+                onClick={() => setView(index)}
+              >
+                <img
+                  className="w-full h-full object-cover"
+                  src={img}
+                  alt="car image"
+                />
+              </div>
+            ))}
           </div>
         </div>
         <div className="info flex flex-col gap-y-8 justify-between rounded-xl lg:w-1/2 p-2 sm:p-4 bg-white ">
@@ -139,9 +134,9 @@ const Details = () => {
                 <del>$100.00</del>
               </p>
             </div>
-            <div className="btn" onClick={()=> dispatch(addToRent(products))}>
+            <div className="btn" onClick={() => dispatch(addToRent(products))}>
               <Link to="/payment">
-                <button className="text-white bg-primary py-4 px-5 rounded-md hover:bg-primary/75 transition-all duration-300">
+                <button className="text-white bg-primary py-4 px-5 rounded-md hover:bg-primary/75 hover:scale-105 transition-all duration-300">
                   Rent Now
                 </button>
               </Link>
@@ -207,7 +202,7 @@ const Details = () => {
                 product={car}
                 fuel_capacity={car.fuel_capacity}
                 toLink={""}
-                className="col-span-1 row-span-1 sm:p-4 "
+                className="col-span-1 row-span-1 sm:p-3 lg:p-3"
               />
             </div>
           ))}

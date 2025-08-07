@@ -23,9 +23,14 @@ const ProductCard = ({
   const [heart, setHeart] = useState(false);
   let dispatch = useDispatch();
   return (
-    <div
+    <motion.div
       key={key}
-      className={`relative flex flex-col gap-y-8 font-jakarta bg-white p-6 ${className} `}
+      whileHover={{
+        scale: 1.02,
+        boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
+      }}
+      transition={{ type: "spring", stiffness: 200, damping: 15 }}
+      className={`relative group flex flex-col md:gap-y-4 xl:gap-y-5 font-jakarta bg-white p-3 lg:p-6 rounded-lg ${className} `}
     >
       <div className="top flex justify-between relative">
         <div className="name flex flex-col gap-y-1">
@@ -49,8 +54,8 @@ const ProductCard = ({
         to={toLink}
         className="detail flex justify-between items-end md:items-start lg:flex-col flex-row gap-y-7"
       >
-        <div className="img w-3/5 h-16 xl:h-[100px] lg:w-full relative after:h-1/2 after:w-full after:absolute after:bottom-0 after:left-0 after:bg-gradient-to-t after:from-white after:to-transparent flex items-end">
-          <img className="w-full" src={image} alt="car image" />
+        <div className="img w-3/5  xl:h-[100px] lg:w-full relative after:h-1/2 after:w-full after:absolute after:bottom-0 after:left-0 after:bg-gradient-to-t after:from-white after:to-transparent flex items-end group-hover:scale-110 duration-300">
+          <img className="w-full " src={image} alt="car image" />
         </div>
         <div className="info lg:w-full w-[5.5rem] flex justify-between flex-col lg:flex-row gap-y-2 sm:gap-y-3">
           <div className="fuel flex gap-x-1.5 items-center md:text-sm text-secondary-text">
@@ -68,7 +73,7 @@ const ProductCard = ({
         </div>
       </Link>
 
-      <div className="bottom flex justify-between items-center">
+      <div className="bottom flex justify-between items-center pt-5 lg:pt-0">
         <div className="price">
           <p className="text-xl text-primary-text font-bold">
             {price} $/
@@ -87,7 +92,7 @@ const ProductCard = ({
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
