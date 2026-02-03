@@ -12,6 +12,7 @@ import Category from "./component/pages/Category";
 import CategoryList from "./component/CategoryList";
 import Details from "./component/Details";
 import Payment from "./component/pages/Payment";
+import useLenis from "./hook/useLenis";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  useLenis();
   return (
     <>
       <RouterProvider router={router} />
