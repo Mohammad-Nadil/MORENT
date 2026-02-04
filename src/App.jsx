@@ -13,6 +13,7 @@ import CategoryList from "./component/CategoryList";
 import Details from "./component/Details";
 import Payment from "./component/pages/Payment";
 import useLenis from "./hook/useLenis";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

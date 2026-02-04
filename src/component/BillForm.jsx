@@ -5,10 +5,12 @@ import safety from "/safetyLogo.png";
 import visa from "/visa.png";
 import paypal from "/paypal.png";
 import bitcoin from "/bitcoin.png";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const BillForm = () => {
-
-  let [ show , setShow] = useState(false)
+  const navigate = useNavigate();
+  let [show, setShow] = useState(false);
 
   let [name, setName] = useState("");
   let [nameErr, setNameErr] = useState(true);
@@ -80,19 +82,19 @@ const BillForm = () => {
     setExpirationDateErr("");
   };
 
-   let [cardHolder, setCardHolder] = useState("");
-   let [cardHolderErr, setCardHolderErr] = useState("");
-   let manageCardHolder = (element) => {
-     setCardHolder(element.target.value);
-     setCardHolderErr("");
-   };
+  let [cardHolder, setCardHolder] = useState("");
+  let [cardHolderErr, setCardHolderErr] = useState("");
+  let manageCardHolder = (element) => {
+    setCardHolder(element.target.value);
+    setCardHolderErr("");
+  };
 
-   let [cvc, setCvc] = useState("");
-   let [cvcErr, setCvcErr] = useState("");
-   let manageCvc = (element) => {
-     setCvc(element.target.value);
-     setCvcErr("");
-   };
+  let [cvc, setCvc] = useState("");
+  let [cvcErr, setCvcErr] = useState("");
+  let manageCvc = (element) => {
+    setCvc(element.target.value);
+    setCvcErr("");
+  };
 
   // let [isNewsLetterChecked, setIsNewsLetterChecked] = useState(false);
   // let [newsLetterErr, setNewsLetterErr] = useState("");
@@ -101,7 +103,6 @@ const BillForm = () => {
   let [termsCheckedErr, setTermsCheckedErr] = useState("");
 
   let [confirm, setConfirm] = useState("");
-
 
   let handleNewsLetterChange = (e) => {
     setIsNewsLetterChecked(e.target.checked);
@@ -153,19 +154,19 @@ const BillForm = () => {
       setDropTimeErr("Drop-off time is required");
       isValid = false;
     }
-    if (!cardNumber) {
+    if (show && !cardNumber) {
       setCardNumberErr("Card number is required");
       isValid = false;
     }
-    if (!expirationDate) {
+    if (show && !expirationDate) {
       setExpirationDateErr("Expiration date is required");
       isValid = false;
     }
-    if (!cardHolder) {
+    if (show && !cardHolder) {
       setCardHolderErr("Card holder name is required");
       isValid = false;
     }
-    if (!cvc) {
+    if (show && !cvc) {
       setCvcErr("CVC is required");
       isValid = false;
     }
@@ -181,7 +182,7 @@ const BillForm = () => {
     }
 
     if (isValid) {
-      setConfirm("Order has been confirmed");
+      setConfirm("");
       setName("");
       setInpNumber("");
       setAddress("");
@@ -196,6 +197,11 @@ const BillForm = () => {
       setCvc("");
       // setIsNewsLetterChecked(false);
       setIsTermsChecked(false);
+      toast.success("Order has been confirmed");
+
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     }
   };
   let errCss = `text-sm text-red-500 absolute top-full  `;
@@ -333,7 +339,8 @@ const BillForm = () => {
         </div>
         <div className="paymentMethod bg-white p-3 md:p-6 rounded-xl flex flex-col gap-y-5 md:gap-y-8">
           <BillingHead title="Payment Method" step="3" />
-          <label onClick={()=>setShow(true)}
+          <label
+            onClick={() => setShow(true)}
             className="flex flex-col gap-y-8 w-full py-4 bg-secondary px-4 md:px-8 rounded-xl "
             htmlFor="card"
           >
@@ -342,53 +349,56 @@ const BillForm = () => {
               <img src={visa} alt={visa} />
             </div>
             {show && (
-            <div className="grid w-full md:w-auto grid-cols-1 md:grid-cols-2 md:gap-x-8 gap-y-6">
-              <Input
-                title="Card Number"
-                type="number"
-                className="bg-white w-full md:w-auto"
-                value={cardNumber}
-                onChange={manageCardNumber}
-              >
-                <p className={errCss}>{cardNumberErr}</p>
-              </Input>
-              <Input
-                title="Expiration Date"
-                type="date"
-                className="bg-white w-full md:w-auto"
-                value={expirationDate}
-                onChange={manageExpirationDate}
-              >
-                <p className={errCss}>{expirationDateErr}</p>
-              </Input>
-              <Input
-                title="Card Holder"
-                type="text"
-                className="bg-white"
-                value={cardHolder}
-                onChange={manageCardHolder}
-              >
-                <p className={errCss}>{cardHolderErr}</p>
-              </Input>
-              <Input
-                title="CVC"
-                type="number"
-                className="bg-white w-full md:w-auto"
-                value={cvc}
-                onChange={manageCvc}
-              >
-                <p className={errCss}>{cvcErr}</p>
-              </Input>
-            </div>)}
+              <div className="grid w-full md:w-auto grid-cols-1 md:grid-cols-2 md:gap-x-8 gap-y-6">
+                <Input
+                  title="Card Number"
+                  type="number"
+                  className="bg-white w-full md:w-auto"
+                  value={cardNumber}
+                  onChange={manageCardNumber}
+                >
+                  <p className={errCss}>{cardNumberErr}</p>
+                </Input>
+                <Input
+                  title="Expiration Date"
+                  type="date"
+                  className="bg-white w-full md:w-auto"
+                  value={expirationDate}
+                  onChange={manageExpirationDate}
+                >
+                  <p className={errCss}>{expirationDateErr}</p>
+                </Input>
+                <Input
+                  title="Card Holder"
+                  type="text"
+                  className="bg-white"
+                  value={cardHolder}
+                  onChange={manageCardHolder}
+                >
+                  <p className={errCss}>{cardHolderErr}</p>
+                </Input>
+                <Input
+                  title="CVC"
+                  type="number"
+                  className="bg-white w-full md:w-auto"
+                  value={cvc}
+                  onChange={manageCvc}
+                >
+                  <p className={errCss}>{cvcErr}</p>
+                </Input>
+              </div>
+            )}
           </label>
-          <label onClick={()=>setShow(false)}
+          <label
+            onClick={() => setShow(false)}
             className="flex items-center justify-between w-full py-4 bg-secondary px-4 md:px-8 rounded-xl text-end"
             htmlFor="paypal"
           >
             <input type="radio" name="payment" id="paypal" />
             <img src={paypal} alt={paypal} />
           </label>
-          <label onClick={()=>setShow(false)}
+          <label
+            onClick={() => setShow(false)}
             className="flex items-center justify-between w-full py-4 bg-secondary px-4 md:px-8 rounded-xl text-end"
             htmlFor="bitcoin"
           >
