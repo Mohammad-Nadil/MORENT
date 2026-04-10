@@ -23,14 +23,9 @@ const ProductCard = ({
   const [heart, setHeart] = useState(false);
   let dispatch = useDispatch();
   return (
-    <motion.div
+    <div
       key={key}
-      whileHover={{
-        scale: 1.02,
-        boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
-      }}
-      transition={{ type: "spring", stiffness: 200, damping: 15 }}
-      className={`relative group flex flex-col md:gap-y-4 xl:gap-y-5 font-jakarta bg-white p-3 lg:p-6 rounded-lg ${className} `}
+      className={`relative group flex flex-col md:gap-y-4 xl:gap-y-5 font-jakarta bg-white p-3 lg:p-6 rounded-lg duration-300 hover:drop-shadow-xl ${className} `}
     >
       <div className="top flex justify-between relative">
         <div className="name flex flex-col gap-y-1">
@@ -92,7 +87,7 @@ const ProductCard = ({
           </Link>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

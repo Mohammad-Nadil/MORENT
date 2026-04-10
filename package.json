@@ -12,6 +12,9 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
     "@studio-freight/lenis": "^1.0.42",
+    "baseline-browser-mapping": "^2.10.16",
+    "caniuse-lite": "^1.0.30001787",
+    "firebase": "^12.12.0",
     "framer-motion": "^11.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
