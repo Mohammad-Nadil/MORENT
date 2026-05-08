@@ -12,6 +12,7 @@ function Items({ currentItems }) {
       {currentItems &&
         currentItems.map((item) => (
           <ProductCard
+            key={item.id}
             image={item.image || car}
             title={item.name}
             type={item.type}

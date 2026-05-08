@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { GiCarSeat, GiGearStickPattern } from "react-icons/gi";
-import image from "/public/NissanGT-R.png";
+import image from "/NissanGT-R.png";
 
 const AdminCars = () => {
   const [activeSection, setActiveSection] = useState(null);

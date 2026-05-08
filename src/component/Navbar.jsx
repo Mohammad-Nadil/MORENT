@@ -28,15 +28,14 @@ const Navbar = () => {
   let profile_setting_icons = `text-[#596780] text-xl`;
 
   return (
-    <div className="bg-white h-16 sm:h-20 sticky top-0 z-50 " >
+    <div className="bg-white  sm:h-20 sticky top-0 z-50 " >
       <Container className=" flex items-center justify-between h-full mx-auto ">
         <Link to="/" >
-          <div className="logo max-w-36 py-8  md:py-0">
+          <div className="logo max-w-24 lg:max-w-36 py-3   md:py-0">
             <img src={logo} alt="" />
           </div>
         </Link>
-        <Search_bar />
-        <div className="profile flex  gap-x-3 md:gap-x-4 lg:gap-x-5">
+        <div className="profile hidden  gap-x-3 md:gap-x-4 lg:gap-x-5">
           <div className="icon hidden md:flex sm:gap-x-2 lg:gap-x-4  ">
             <div className={profile_setting}>
               <FaHeart className={` text-xl text-[#596780] `} />
@@ -50,7 +49,7 @@ const Navbar = () => {
           </div>
           <div
             onClick={() => setUser(!user)}
-            className="user  h-11 w-11 border rounded-full relative"
+            className="user  h-11 w-11 border rounded-full relative "
           >
             <img className="h-full w-full" src={pfp} alt="" />
             {user ? (

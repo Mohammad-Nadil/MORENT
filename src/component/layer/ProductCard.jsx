@@ -5,7 +5,7 @@ import { GiCarSeat, GiGearStickPattern } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { addToRent } from "../../features/rent/rentSlice.js";
+import { addToRent } from "../../services/features/rent/rentSlice.js";
 
 const ProductCard = ({
   image,
@@ -17,14 +17,12 @@ const ProductCard = ({
   seat,
   transmission,
   toLink,
-  key,
   product,
 }) => {
   const [heart, setHeart] = useState(false);
   let dispatch = useDispatch();
   return (
     <div
-      key={key}
       className={`relative group flex flex-col md:gap-y-4 xl:gap-y-5 font-jakarta bg-white p-3 lg:p-6 rounded-lg duration-300 hover:drop-shadow-xl ${className} `}
     >
       <div className="top flex justify-between relative">

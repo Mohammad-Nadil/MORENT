@@ -9,7 +9,7 @@ import farhan from "/farhan.jpg";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ProductCard from "./layer/ProductCard";
 import { useDispatch, useSelector } from "react-redux";
-import { addToRent } from "../features/rent/rentSlice.js";
+import { addToRent } from "../services/features/rent/rentSlice.js";
 
 // Dummy reviews data
 const reviews = [

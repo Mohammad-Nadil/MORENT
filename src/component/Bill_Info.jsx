@@ -1,7 +1,7 @@
 import React from "react";
 import PaymentCard from "./layer/PaymentCard";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromRent } from "../features/rent/rentSlice.js";
+import { removeFromRent } from "../services/features/rent/rentSlice.js";
 
 const Bill_Info = () => {
   let items = useSelector((state) => state.rent.toRent);

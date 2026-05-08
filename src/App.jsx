@@ -19,6 +19,7 @@ import DashboardHome from "./component/dashboard/DashboardHome";
 import AdminCars from "./component/dashboard/AdminCars";
 import EditCar from "./component/dashboard/EditCar";
 import OrdersTable from "./component/dashboard/OrdersTable";
+import Test from "./component/test/Test";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path="payment" element={<Payment />} />
+      <Route path="test" element={<Test />} />
 
       <Route path="dashboard" element={<Dashboard />}>
         <Route index element={<DashboardHome />} />

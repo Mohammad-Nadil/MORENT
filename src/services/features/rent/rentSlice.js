@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import cars from "../../cars.js";
+import cars from "../../../cars";
 
 const initialState = {
   toRent: [],
