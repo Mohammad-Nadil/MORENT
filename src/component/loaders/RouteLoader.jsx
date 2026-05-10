@@ -8,12 +8,17 @@ const RouteLoader = () => {
 
   useEffect(() => {
     setLoading(true);
+    document.body.style.overflow = "hidden";
 
     const timer = setTimeout(() => {
       setLoading(false);
+      document.body.style.overflow = "auto";
     }, 1000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = "auto";
+    };
   }, [location.pathname]);
 
   return <PageLoader loading={loading} />;
