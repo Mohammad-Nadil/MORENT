@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const Category = () => {
   return (
-    <div className="py-1 ">
+    <div className="xl:py-1 ">
       <Container className="flex flex-col xl:flex-row bg-secondary">
         <SideNav />
         <Outlet />

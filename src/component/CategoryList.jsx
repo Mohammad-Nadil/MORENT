@@ -12,7 +12,7 @@ const CategoryList = () => {
     setItemsPerPage(itemsPerPage + 6);
   };
   return (
-    <div className="main w-full xl:w-3/4 gap-8 flex flex-col pt-3 xl:pl-5 ">
+    <div className="main w-full xl:w-3/4 gap-8 flex flex-col  xl:pl-5 ">
       <Pick2 className="w-full" />
       <Paginate itemsPerPage={itemsPerPage} />
       <motion.button

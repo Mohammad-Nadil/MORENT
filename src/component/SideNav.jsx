@@ -22,7 +22,7 @@ const SideNav = () => {
 
   return (
     <>
-      <div className="sideBar xl:w-1/4 xl:mt-4 flex-col bg-white">
+      <div className="sideBar hidden xl:flex xl:w-1/4 xl:mt-4 flex-col bg-white">
         <div className=" p-2 xl:p-8 flex justify-between xl:flex-col gap-y-14 font-jakarta relative font-semibold text-primary-text ">
           <div className="flex xl:flex-col  items-center xl:items-start border xl:border-none rounded-md gap-y-0 xl:gap-y-7">
             <p

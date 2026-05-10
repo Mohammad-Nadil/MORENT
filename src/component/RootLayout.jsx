@@ -5,14 +5,16 @@ import Navbar from "./Navbar";
 import ScrollToTop from "./ScrollToTop";
 import { Toaster } from "react-hot-toast";
 import useLenis from "../hook/useLenis";
+import RouteLoader from "./loaders/RouteLoader";
 
 const RootLayout = () => {
-  // useLenis();
+  useLenis();
   return (
     <>
       <Toaster position="bottom-right" reverseOrder={false} />
       <ScrollToTop />
       <Navbar />
+      <RouteLoader />
       <Outlet />
       <Footer />
     </>

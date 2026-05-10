@@ -42,7 +42,7 @@ const Details = () => {
     state.rent.allCars.find((item) => item.id === Number(id))
   );
   return (
-    <div className="font-jakarta flex flex-col gap-y-8 w-full xl:w-3/4 pt-4 xl:px-8 ">
+    <div className="font-jakarta flex flex-col gap-y-8 w-full xl:w-3/4 xl:px-8 ">
       <div className="details bg-slate-100 flex flex-col lg:flex-row gap-8 w-full">
         <div className="images flex flex-col  gap-y-4 md:gap-y-6 lg:w-1/2  ">
           <div className="top w-full  ">
@@ -98,11 +98,11 @@ const Details = () => {
             </div>
           </div>
           <div className="description">
-            <p className="text-xl text-primary-text leading-9">
+            <p className="md:text-xl text-primary-text xl:leading-9">
               {products.description}
             </p>
           </div>
-          <div className="specification flex flex-col sm:flex-row gap-y-4 sm:gap-20 lg:gap-x-6 text-xl text-primary-text">
+          <div className="specification flex flex-col sm:flex-row gap-y-3 sm:gap-20 lg:gap-x-6  sm:text-xl text-primary-text">
             <div className="left flex flex-col gap-y-4 lg:gap-y-2 sm:w-1/2 ">
               <div className="top flex justify-between items-center ">
                 <h2 className="text-secondary-text ">Type Car :</h2>

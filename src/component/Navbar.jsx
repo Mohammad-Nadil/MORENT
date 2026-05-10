@@ -7,35 +7,34 @@ import { FaBell, FaHeart } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const Search_bar = ({ className }) => {
-  return (
-    <div className={`search relative hidden sm:flex ${className} `}>
-      <FiSearch className="text-2xl text-[#596780] absolute top-1/2 -translate-y-1/2 left-0 translate-x-full" />
-      <input
-        type="text"
-        className="py-3 px-16 w-full sm:w-96 md:w-80 lg:w-[31rem] font-jakarta font-medium text-sm text-primary-text outline-none border border-[#C3D4E966] rounded-xl sm:rounded-full"
-        placeholder="Search something here"
-      />
-    </div>
-  );
-};
+// const Search_bar = ({ className }) => {
+//   return (
+//     <div className={`search relative hidden sm:flex ${className} `}>
+//       <FiSearch className="text-2xl text-[#596780] absolute top-1/2 -translate-y-1/2 left-0 translate-x-full" />
+//       <input
+//         type="text"
+//         className="py-3 px-16 w-full sm:w-96 md:w-80 lg:w-[31rem] font-jakarta font-medium text-sm text-primary-text outline-none border border-[#C3D4E966] rounded-xl sm:rounded-full"
+//         placeholder="Search something here"
+//       />
+//     </div>
+//   );
+// };
 
 const Navbar = () => {
-  let [user, setUser] = useState(false);
+  // let [user, setUser] = useState(false);
 
-
-  let profile_setting = `w-11 h-11 rounded-full border border-[#C3D4E9] grid place-content-center cursor-pointer`;
-  let profile_setting_icons = `text-[#596780] text-xl`;
+  // let profile_setting = `w-11 h-11 rounded-full border border-[#C3D4E9] grid place-content-center cursor-pointer`;
+  // let profile_setting_icons = `text-[#596780] text-xl`;
 
   return (
-    <div className="bg-white  sm:h-20 sticky top-0 z-50 " >
+    <div className="bg-white  sm:h-20 sticky top-0 z-[999] ">
       <Container className=" flex items-center justify-between h-full mx-auto ">
-        <Link to="/" >
+        <Link to="/">
           <div className="logo max-w-24 lg:max-w-36 py-3   md:py-0">
             <img src={logo} alt="" />
           </div>
         </Link>
-        <div className="profile hidden  gap-x-3 md:gap-x-4 lg:gap-x-5">
+        {/* <div className="profile hidden  gap-x-3 md:gap-x-4 lg:gap-x-5">
           <div className="icon hidden md:flex sm:gap-x-2 lg:gap-x-4  ">
             <div className={profile_setting}>
               <FaHeart className={` text-xl text-[#596780] `} />
@@ -68,11 +67,11 @@ const Navbar = () => {
               ""
             )}
           </div>
-        </div>
+        </div> */}
       </Container>
-      <Container>
+      {/* <Container>
         <Search_bar className=" sm:!hidden" />
-      </Container>
+      </Container> */}
     </div>
   );
 };
