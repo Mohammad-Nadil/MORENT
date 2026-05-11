@@ -32,7 +32,7 @@ const Recommendation = () => {
             transmission={car.transmission}
             seat={car.seat_capacity}
             fuel_capacity={car.fuel_capacity}
-            toLink={"category/product/" + car.id}
+            toLink={"product/" + car.id}
             product={car}
           />
         ))}

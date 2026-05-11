@@ -13,7 +13,7 @@ const RouteLoader = () => {
     const timer = setTimeout(() => {
       setLoading(false);
       document.body.style.overflow = "auto";
-    }, 1000);
+    }, 500);
 
     return () => {
       clearTimeout(timer);

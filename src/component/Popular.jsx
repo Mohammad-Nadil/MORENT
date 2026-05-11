@@ -98,7 +98,7 @@ const Popular = () => {
                   transmission={item.transmission}
                   seat={item.seat_capacity}
                   fuel_capacity={item.fuel_capacity}
-                  toLink={"category/product/" + item.id}
+                  toLink={"product/" + item.id}
                   product={item}
                 />
               </div>

@@ -21,7 +21,7 @@ function Items({ currentItems }) {
             seat={item.seat_capacity}
             fuel_capacity={item.fuel_capacity}
             product={item}
-            toLink={"product/" + item.id}
+            toLink={"/product/" + item.id}
             className="col-span-1 row-span-1"
           />
         ))}
@@ -29,27 +29,19 @@ function Items({ currentItems }) {
   );
 }
 
-const Paginate = ({ itemsPerPage }) => {
-  let allCars = useSelector((state) => state.rent.allCars);
-
-  // Here we use item offsets; we could also use page offsets
-  // following the API or data you're working with.
+const Paginate = ({ itemsPerPage, cars }) => {
   const [itemOffset, setItemOffset] = useState(0);
 
-  // Simulate fetching items from another resources.
-  // (This could be items from props; or items loaded in a local state
-  // from an API endpoint with useEffect and useState)
-  const endOffset = itemOffset + itemsPerPage;
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-  const currentItems = allCars.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(allCars.length / itemsPerPage);
+  useEffect(() => {
+    setItemOffset(0);
+  }, [cars]);
 
-  // Invoke when user click to request another page.
+  const endOffset = itemOffset + itemsPerPage;
+  const currentItems = cars.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(cars.length / itemsPerPage);
+
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % allCars.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
+    const newOffset = (event.selected * itemsPerPage) % cars.length;
     setItemOffset(newOffset);
   };
 
@@ -58,17 +50,6 @@ const Paginate = ({ itemsPerPage }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8  ">
         <Items currentItems={currentItems} />
       </div>
-      {/* <div>
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel="next >"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          pageCount={pageCount}
-          previousLabel="< previous"
-          renderOnZeroPageCount={null}
-        />
-      </div> */}
     </>
   );
 };

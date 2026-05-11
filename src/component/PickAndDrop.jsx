@@ -8,7 +8,7 @@ const PickAndDrop = ({className , divClass  }) => {
 
   return (
     <Container
-      className={`py-8 font-jakarta flex justify-between gap-y-12 ${className} ${
+      className={`py-4 font-jakarta flex justify-between gap-y-12 ${className} ${
         swap ? "xl:flex-row flex-col " : "xl:flex-row-reverse flex-col-reverse"
       }`}
     >
