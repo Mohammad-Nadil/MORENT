@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Container from "../layer/Container";
 import Pick2 from "../layer/Pick2";
 import { motion } from "framer-motion";
@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 const Category = () => {
   const allCars = useSelector((state) => state.rent.allCars);
+  const [filterOpen, setFilterOpen] = useState(false);
 
   let [itemsPerPage, setItemsPerPage] = useState(6);
   let [activeSection, setActiveSection] = useState(null);
@@ -53,61 +54,92 @@ const Category = () => {
     );
   };
 
+  useEffect(() => {
+    if (filterOpen) {
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.body.style.position = "static";
+    }
+
+    return () => {
+      document.body.style.position = "static";
+      document.body.style.width = "100%";
+    };
+  }, [filterOpen]);
+
   return (
     <div className=" xl:py-3">
-      <Container className="flex flex-col xl:flex-row gap-4  bg-secondary">
-        <div className="sideBar flex xl:w-1/4 flex-col ">
-          <div className="p-2 xl:p-8 flex justify-between xl:flex-col gap-y-14 font-jakarta relative font-semibold text-primary-text xl:bg-white ">
+      <Container
+        className={`flex flex-col xl:flex-row gap-4  bg-secondary relative overflow-x-clip `}
+      >
+        <div
+          onClick={() => setFilterOpen(false)}
+          className={`absolute top-0 left-0 w-full h-full bg-black/50  duration-300 z-40 ${
+            filterOpen ? "visible opacity-100" : "invisible opacity-0"
+          }`}
+        ></div>
+
+        <button
+          onClick={() => setFilterOpen(!filterOpen)}
+          className={`xl:hidden fixed bottom-0 right-0 -translate-x-1/4 -translate-y-1/2 z-50 bg-primary py-2 font-jakarta font-semibold text-white rounded-full px-4 `}
+        >
+          filter
+        </button>
+        <div
+          className={`sideBar absolute xl:sticky flex w-3/4 sm:w-full xl:w-1/4 flex-col top-0 z-50 duration-300 rounded xl:touch-none ${
+            filterOpen ? " left-0" : "  -left-full"
+          } `}
+        >
+          <div className="p-2 xl:p-6 flex sm:flex-row xl:flex-col justify-between flex-col xl:gap-y-14 font-jakarta relative font-semibold text-primary-text  xl:sticky xl:top-24 bg-white">
             {/* TYPE SECTION */}
-            <div className="flex xl:flex-col items-center xl:items-start  rounded-md gap-y-5   ">
+            <div className="flex-col  rounded-md gap-y-5   ">
               <p
                 onClick={() => toggleSection("type")}
-                className="font-semibold text-sm text-secondary-text   cursor-pointer"
+                className="font-semibold text-sm text-secondary-text   cursor-pointer px-2 xl:px-0"
               >
                 TYPE
               </p>
               <div
-                className={`flex flex-col absolute z-50 xl:static top-full left-0 bg-white border xl:border-none gap-y-3 p-4 xl:p-0     transition-all duration-300 ${activeSection === "type" ? "opacity-100 visible" : "opacity-0 invisible"} xl:visible xl:opacity-100`}
+                className={`flex flex-col  bg-white gap-y-3 p-4 xl:p-0     transition-all duration-300 `}
               >
-                {["Sport", "SUV", "MPV", "Sedan", "Coupe", "Hatchback"].map(
-                  (type) => (
-                    <div key={type} className="flex items-center gap-x-2">
-                      <input
-                        type="checkbox"
-                        className="w-5 h-5 accent-primary"
-                        id={type}
-                        onChange={() =>
-                          handleFilterChange(
-                            type,
-                            selectedTypes,
-                            setSelectedTypes,
-                          )
-                        }
-                      />
-                      <label htmlFor={type} className="cursor-pointer">
-                        {type}{" "}
-                        <span className="text-secondary-text">
-                          ({getCount("type", type)})
-                        </span>
-                      </label>
-                    </div>
-                  ),
-                )}
+                {["Sport", "SUV", "Sedan", "Coupe"].map((type) => (
+                  <div key={type} className="flex items-center gap-x-2">
+                    <input
+                      type="checkbox"
+                      className="w-5 h-5 accent-primary"
+                      id={type}
+                      onChange={() =>
+                        handleFilterChange(
+                          type,
+                          selectedTypes,
+                          setSelectedTypes,
+                        )
+                      }
+                    />
+                    <label htmlFor={type} className="cursor-pointer">
+                      {type}{" "}
+                      <span className="text-secondary-text">
+                        ({getCount("type", type)})
+                      </span>
+                    </label>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* CAPACITY SECTION */}
-            <div className="flex flex-col items-center xl:items-start  ">
+            <div className="flex flex-col   ">
               <p
                 onClick={() => toggleSection("cap")}
-                className="font-semibold  rounded-md text-sm text-secondary-text p-2 xl:p-0 cursor-pointer"
+                className="font-semibold  rounded-md text-sm text-secondary-text px-2 xl:px-0 cursor-pointer"
               >
                 CAPACITY
               </p>
               <div
-                className={`flex flex-col absolute xl:static bg-white border xl:border-none top-full py-4 px-8 xl:px-0 z-30 gap-y-3 transition-all duration-300 ${activeSection === "cap" ? " opacity-100 visible" : " opacity-0 invisible"} xl:opacity-100 xl:visible `}
+                className={`flex flex-col  p-4 xl:p-0 z-30 gap-y-3 transition-all duration-300  `}
               >
-                {[2, 4, 5, 6, 7, 8].map((cap) => (
+                {[2, 3, 4, 6].map((cap) => (
                   <div key={cap} className="flex items-center gap-x-2">
                     <input
                       type="checkbox"
@@ -140,9 +172,7 @@ const Category = () => {
               >
                 Price
               </p>
-              <div
-                className={`flex flex-col absolute xl:static top-full right-0 bg-white p-4 xl:p-0 border xl:border-none z-30 w-52  ${activeSection === "price" ? "opacity-100 visible" : " opacity-0 invisible"} xl:opacity-100 xl:visible transition-all duration-300 `}
-              >
+              <div className={`flex flex-col  px-4 xl:px-0   `}>
                 <input
                   type="range"
                   min="0"
@@ -159,11 +189,7 @@ const Category = () => {
 
         {/* MAIN CONTENT */}
         <div className="main w-full xl:w-3/4 gap-8 flex flex-col ">
-          <Pick2 className="w-full" />
-
-          {/* Paginate ke filteredCars pass korchi */}
           <Paginate itemsPerPage={itemsPerPage} cars={filteredCars} />
-
           {filteredCars.length > itemsPerPage && (
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -189,6 +215,7 @@ const Category = () => {
       </Container>
     </div>
   );
+  j;
 };
 
 export default Category;

@@ -4,13 +4,13 @@ import Lenis from "@studio-freight/lenis";
 import { useLocation } from "react-router-dom";
 
 export default function useLenis() {
-  const location = useLocation(); 
-
+  const location = useLocation();
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.25,
       smooth: true,
       smoothTouch: false,
+      
     });
 
     function raf(time) {
@@ -26,5 +26,5 @@ export default function useLenis() {
     return () => {
       lenis.destroy();
     };
-  }, [location]); 
+  }, [location]);
 }
