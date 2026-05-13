@@ -27,7 +27,7 @@ const Navbar = () => {
   // let profile_setting_icons = `text-[#596780] text-xl`;
 
   return (
-    <div className="bg-white  sm:h-20 sticky top-0 z-[999] ">
+    <div className="bg-white  sm:h-14 sticky top-0 z-[999] ">
       <Container className=" flex items-center justify-between h-full mx-auto ">
         <Link to="/">
           <div className="logo max-w-24 lg:max-w-36 py-3   md:py-0">

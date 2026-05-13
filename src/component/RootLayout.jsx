@@ -10,12 +10,14 @@ import RouteLoader from "./loaders/RouteLoader";
 const RootLayout = () => {
   useLenis();
   return (
-    <div>
+    <div className="flex flex-col min-h-screen ">
       <Toaster position="bottom-right" reverseOrder={false} />
       <ScrollToTop />
       <Navbar />
       <RouteLoader />
-      <Outlet />
+      <main className="flex-1 ">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

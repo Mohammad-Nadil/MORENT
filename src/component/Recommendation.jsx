@@ -14,7 +14,7 @@ const Recommendation = () => {
         </h2>
         <p>
           <Link
-            to="/category"
+            to="/product"
             className="font-semibold text-primary hover:bg-secondary-text sm:px-5 py-2.5 rounded-md transition-all duration-300"
           >
             View All
